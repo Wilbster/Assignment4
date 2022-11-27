@@ -1,4 +1,6 @@
 """
+Olga Zimina
+A01307815
 Wilber Lin
 A01331142
 """
@@ -21,8 +23,6 @@ def make_board(rows, columns):
             board[(i, j)] = 'Empty Room'
 
     return board
-
-
 
 
 def main():
