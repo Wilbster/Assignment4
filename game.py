@@ -23,7 +23,6 @@ def game(): # called from main
         describe_current_location(board, character)
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
-        print((character['X-coordinate'], character['Y-coordinate']))
         if valid_move:
             move_character(character, direction)
             describe_current_location(board, character)
