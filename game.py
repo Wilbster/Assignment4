@@ -8,6 +8,7 @@ from board import make_board
 from character import make_character, choose_name
 from describe import describe_current_location
 from control import get_user_choice, validate_move, move_character
+from challenge import check_for_challenges, execute_challenge_protocol
 
 
 
@@ -26,14 +27,15 @@ def game(): # called from main
         if valid_move:
             move_character(character, direction)
             describe_current_location(board, character)
-            """
             there_is_a_challenge = check_for_challenges()
             if there_is_a_challenge:
                 execute_challenge_protocol(character)
+                """
                 if character_has_leveled():
                     execute_glow_up_protocol()
                 achieved_goal = check_if_goal_attained(board, character)
-            """
+                """
+
         else:
             print('That is outside the boundaries of our realm!')
             print('Enter anything to continue.')
