@@ -7,6 +7,8 @@ A01331142
 
 import json
 
+from prettytable import PrettyTable
+
 
 map_art = """___  ___                     __   _   _              _            
 |  \/  |                    / _| | | | |            | |           
@@ -18,39 +20,37 @@ map_art = """___  ___                     __   _   _              _
              |_|        """
 
 
-map_legend = {"Tavern": ("TVN", "unique"),
-              "Cowshed": ("CSD", "unique"),
-              "Stable": ("SBL", "unique"),
-              "Grass field": ("⚘⚘⚘", "basic"),
-              "Mountains": ("ꤺꤺꥃ", "basic"),
-              "River": ("~~~", "basic"),
-              "Swamp": ("_-_", "basic"),
-              "Forest": ("///", "basic"),
-              "Scorched earth": ("...", "basic"),
-              "Forester's shack": ("SHK", "unique"),
-              "3 Witches house": ("3WH", "unique"),
-              "Mountain troll cave": ("TCV", "unique"),
-              "Crossroad": ("CRD", "unique"),
-              "Basilisk cave": ("BCV", "unique")}
-
-
-def print_map_legend(legend):
-    print()
-    print('MAP LEGEND')
-    print(' X  - you are here')
-    for location_type in legend:
-        print(f' {legend[location_type][0]} - {location_type}')
-
-
 def get_land_layout(map_name):
     with open('maps.json', 'r') as maps_options:
         maps = json.load(maps_options)
     for land_name, layout in maps.items():
         if land_name == map_name:
-            return layout
+            return layout["layout"]
         else:
             print("Oops! There is no such land in this version")
-    print(maps)
+
+
+def get_map_legend(map_name):
+    with open('maps.json', 'r') as maps_options:
+        maps = json.load(maps_options)
+    for land_name, land_info in maps.items():
+        if land_name == map_name:
+            return land_info["legend"]
+        else:
+            print("Oops! There is no such land in this version")
+
+
+def print_map_legend(legend):
+    print()
+    print('MAP LEGEND')
+    headers = ["You are here"]
+    symbols = ["X"]
+    for location_type, symbol in legend.items():
+        headers.append(location_type)
+        symbols.append(symbol)
+    table = PrettyTable(headers)
+    table.add_row(symbols)
+    print(table)
 
 
 def make_board(layout):
@@ -66,7 +66,7 @@ def make_board(layout):
 
 
 def draw_map(board_typed, legend, current_location):
-    print(map_art)
+    print(f'{map_art}\n')
     rows = set()
     columns = set()
     for key in board_typed.keys():
@@ -78,7 +78,7 @@ def draw_map(board_typed, legend, current_location):
             if current_location == (row, column):
                 print(f"| X | ", end="")  # if character's location is equal to (row, column), print X
             else:
-                print(f"|{legend[location_type][0]}| ", end="")
+                print(f"|{legend[location_type]}| ", end="")
         print()
     print_map_legend(legend)
 
@@ -86,6 +86,7 @@ def draw_map(board_typed, legend, current_location):
 def main():
     layout = get_land_layout("Verden")
     board = make_board(layout)
+    map_legend = get_map_legend("Verden")
     draw_map(board, map_legend, (1, 1))
     # pass
 
