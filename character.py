@@ -5,7 +5,7 @@ Wilber Lin
 A01331142
 """
 
-from tabulate import tabulate
+from prettytable import PrettyTable
 
 
 class Character:
@@ -49,7 +49,9 @@ class Character:
     def print_stat(self):
         headers = ["Character", "Level", "HP", "Experience", "Current location"]
         info = [self.__name, self.__level, self.__current_hp, self.__experience, self.__current_location]
-        print(tabulate(info, headers))
+        table = PrettyTable(headers)
+        table.add_row(info)
+        print(table)
 
 
 def main():
