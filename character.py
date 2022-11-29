@@ -5,22 +5,51 @@ Wilber Lin
 A01331142
 """
 
-
-def make_character(name):
-    character = {"Name": name, "Level": 1, "X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5, "Max HP": 5,
-                 "Experience": 0}
-    print(f"Welcome to the realm of Thompsons, Monster Hunter {name}. Our lord and soverign, Supereme Ruler")
-    print("Christopher, rules with an iron fist.")
-    print('Enter anything to continue.')
-    input()
-    return character
+from tabulate import tabulate
 
 
-def choose_name():
+class Character:
 
-    print('Choose your name for this quest, Witcher.')
-    name = input()
-    return name
+    hp = 5
+
+    def __init__(self, name):
+        self.__name = name
+        self.__current_hp = Character.hp
+        self.__level = 1
+        self.__experience = 0
+        self.__current_location = (0, 0)
+
+    def set_current_hp(self, difference):
+        self.__current_hp += difference
+
+    def set_level(self):
+        self.__level += 1
+
+    def set_experience(self, gained_experience):
+        self.__experience += gained_experience
+
+    def set_current_location(self, new_coordinates):
+        self.__current_location = new_coordinates
+
+    def get_name(self):
+        return self.__name
+
+    def get_current_hp(self):
+        return self.__current_hp
+
+    def get_level(self):
+        return self.__level
+
+    def get_experience(self):
+        return self.__experience
+
+    def get_current_location(self):
+        return self.__experience
+
+    def print_stat(self):
+        headers = ["Character", "Level", "HP", "Experience", "Current location"]
+        info = [self.__name, self.__level, self.__current_hp, self.__experience, self.__current_location]
+        print(tabulate(info, headers))
 
 
 def main():
