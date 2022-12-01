@@ -83,6 +83,7 @@ def draw_map(board_typed, legend, current_location):
     print_map_legend(legend)
 
 
+
 def main():
     layout = get_land_layout("Verden")
     board = make_board(layout)
