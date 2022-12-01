@@ -11,16 +11,21 @@ from prettytable import PrettyTable
 class Character:
 
     hp = 5
+    max_hp = 5
 
     def __init__(self, name):
         self.__name = name
         self.__current_hp = Character.hp
+        self.__max_hp = Character.max_hp
         self.__level = 1
         self.__experience = 0
         self.__current_location = (0, 0)
 
     def set_current_hp(self, difference):
         self.__current_hp += difference
+
+    def set_max_hp(self, level_up_hp):
+        self.__max_hp += level_up_hp
 
     def set_level(self):
         self.__level += 1
@@ -37,6 +42,9 @@ class Character:
     def get_current_hp(self):
         return self.__current_hp
 
+    def get_max_hp(self):
+        return self.__max_hp
+
     def get_level(self):
         return self.__level
 
@@ -52,6 +60,16 @@ class Character:
         table = PrettyTable(headers)
         table.add_row(info)
         print(table)
+
+    def move_to(self, direction):
+        if direction == 'North':
+            self.__current_location[1] -= 1
+        elif direction == 'South':
+            self.__current_location[1] += 1
+        elif direction == 'West':
+            self.__current_location[0] -= 1
+        elif direction == 'East':
+            self.__current_location[0] += 1
 
 
 def main():
