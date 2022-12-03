@@ -6,6 +6,7 @@ A01331142
 """
 
 import json
+import random
 
 from prettytable import PrettyTable
 
@@ -83,6 +84,28 @@ def draw_map(board_typed, legend, current_location):
     print_map_legend(legend)
 
 
+def set_enemies(board):
+    enemies_board = {}
+    with open('enemies.json', 'r') as enemies_types:
+        enemies = json.load(enemies_types)
+    enemies_per_type_location = {}
+    print(enemies)
+    print(type(enemies))
+    for enemy in enemies["enemies"]:
+        if enemy["location"] not in enemies_per_type_location:
+            enemies_per_type_location[enemy["location"]] = [enemy["name"]]
+        else:
+            enemies_per_type_location[enemy["location"]].append(enemy["name"])
+    print(enemies_per_type_location)
+    for coordinates, location_type in board.items():
+        print(f'coordinates: {coordinates}, location type: {location_type}')
+        if location_type in enemies_per_type_location.keys():
+            enemies_board[coordinates] = random.choices(enemies_per_type_location[location_type]+[''])
+        else:
+            enemies_board[coordinates] = ['']
+    enemies_board[(9, 9)] = 'Basilisk'
+    print(enemies_board)
+
 
 def main():
     layout = get_land_layout("Verden")
@@ -90,7 +113,7 @@ def main():
     map_legend = get_map_legend("Verden")
     print('legend:', map_legend)
     draw_map(board, map_legend, [0, 0])
-
+    set_enemies(board)
     # pass
 
 
