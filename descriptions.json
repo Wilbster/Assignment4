@@ -1,0 +1,41 @@
+{
+  "Forest": {
+    "type": ["This part of the forest is ancient. Its canopy was contested by linden, willow, and sequoia, which allowed adequate light to pass down for a motley of bushes to claim the thick layer of leaves below.",
+    "This part of the forest is rather young. Its canopy was claimed by hemlock and fir. Plenty of light passed through their crowns for a flood of herbs to take advantage of the crunchy layer of leaves below.",
+    "It feels like a primal forest. Its canopy was eclipsed by hemlock, hazel, and cedar.",
+    "This is a dark side of the forest."],
+    "surrounding" : ["Curling creepers hung from a couple of trees, and a jumble of flowers, which grew in a sprinkled and disorderly fashion, enriched the emerald forest floor.",
+    "Quiet branches waved from every tree, and a potpourri of flowers, which blossomed brightly, added more life to the otherwise uniform view.",
+    "Thin climbing plants held onto many trees, and a range of flowers, which blossomed brightly, brightened up the otherwise monotone landscape.",
+    "Bundled branches held onto many trees, and various flowers, which claimed remnants of light, clashed with the otherwise uniform view."],
+    "sounds" : ["A disharmony of wild noises caused by bird songs added life to the forest, and the sounds of the occasional splashes of frogs jumping in the nearby lake.",
+    "A mishmash of beastly noises, mainly belonging to insects and critters, reverberated through the air and drowned out the occasional sounds of large animals in the distance.",
+    "A cacophony of wild sounds, mainly belonging to small creatures, reverberated through the air and overpowered the occasional sounds of breaking twigs beneath the feet of larger animals.",
+    "A cacophony of beastly sounds and the occasional roar of a large animal trying to scare away predators."]
+  },
+  "Grass field": {
+    "type": ["test", "test","test", "test"],
+    "surrounding" : ["test", "test","test", "test"],
+    "sounds" : ["test", "test","test", "test"]
+  },
+  "Mountains" : {
+    "type": ["test", "test","test", "test"],
+    "surrounding" : ["test", "test","test", "test"],
+    "sounds" : ["test", "test","test", "test"]
+  },
+  "River": {
+    "type": ["test", "test","test", "test"],
+    "surrounding" : ["test", "test","test", "test"],
+    "sounds" : ["test", "test","test", "test"]
+  },
+  "Swamp" : {
+    "type": ["test", "test","test", "test"],
+    "surrounding" : ["test", "test","test", "test"],
+    "sounds" : ["test", "test","test", "test"]
+  },
+  "Scorched earth" : {
+    "type": ["The crisp and clean-looking town looked more like a jungle as trees and gardens grew beyond their unkempt boundaries."],
+    "surrounding" : ["The sounds of insects, winds, and creaking wood of trees which were once drowned out by the sounds of horses and people, had returned as the dominant sounds."],
+    "sounds" : ["Streets and streets of abandoned homes made for a terrifying thought. Each house was once a home belonging to a family, and now there was only emptiness."]
+  }
+}
