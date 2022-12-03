@@ -10,7 +10,6 @@ import random
 
 from prettytable import PrettyTable
 
-
 map_art = """___  ___                     __   _   _              _            
 |  \/  |                    / _| | | | |            | |           
 | .  . | __ _ _ __     ___ | |_  | | | | ___ _ __ __| | ___ _ __  
@@ -59,8 +58,8 @@ def make_board(layout):
     x_coordinate = 0
     for row in layout:
         y_coordinate = 0
-        for column in row:
-            board[(x_coordinate, y_coordinate)] = column
+        for location_type in row:
+            board[(x_coordinate, y_coordinate)] = {"type": location_type, "description": "", "enemy": "Enemy"}
             y_coordinate += 1
         x_coordinate += 1
     return board
@@ -75,7 +74,7 @@ def draw_map(board_typed, legend, current_location):
         columns.add(key[1])
     for row in rows:
         for column in columns:
-            location_type = board_typed[(row, column)]  # get location type assigned for (row, column)
+            location_type = board_typed[(row, column)]["type"]  # get location type assigned for (row, column)
             if current_location == [row, column]:
                 print(f"| X | ", end="")  # if character's location is equal to (row, column), print X
             else:
@@ -84,36 +83,45 @@ def draw_map(board_typed, legend, current_location):
     print_map_legend(legend)
 
 
+def generate_description(board):
+    with open('descriptions.json', 'r') as descriptions_options:
+        descriptions = json.load(descriptions_options)
+    for coordinates, location_type in board.items():
+        if location_type["type"] in descriptions:
+            type_description_options = descriptions[location_type["type"]]
+            location_description_type = random.choices(type_description_options["type"])
+            location_description_surroundings = random.choices(type_description_options["surrounding"])
+            location_description_sounds = random.choices(type_description_options["sounds"])
+            board[coordinates]["description"] = ' '.join(location_description_type + location_description_surroundings +
+                                                         location_description_sounds)
+
+
 def set_enemies(board):
     enemies_board = {}
     with open('enemies.json', 'r') as enemies_types:
         enemies = json.load(enemies_types)
     enemies_per_type_location = {}
-    print(enemies)
-    print(type(enemies))
     for enemy in enemies["enemies"]:
         if enemy["location"] not in enemies_per_type_location:
             enemies_per_type_location[enemy["location"]] = [enemy["name"]]
         else:
             enemies_per_type_location[enemy["location"]].append(enemy["name"])
-    print(enemies_per_type_location)
     for coordinates, location_type in board.items():
-        print(f'coordinates: {coordinates}, location type: {location_type}')
         if location_type in enemies_per_type_location.keys():
-            enemies_board[coordinates] = random.choices(enemies_per_type_location[location_type]+[''])
+            enemies_board[coordinates] = random.choices(enemies_per_type_location[location_type] + [''])
         else:
             enemies_board[coordinates] = ['']
     enemies_board[(9, 9)] = 'Basilisk'
-    print(enemies_board)
 
 
 def main():
     layout = get_land_layout("Verden")
     board = make_board(layout)
     map_legend = get_map_legend("Verden")
-    print('legend:', map_legend)
     draw_map(board, map_legend, [0, 0])
-    set_enemies(board)
+    # set_enemies(board)
+    print()
+    generate_description(board)
     # pass
 
 
