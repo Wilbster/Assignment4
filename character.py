@@ -19,7 +19,7 @@ class Character:
         self.__max_hp = Character.max_hp
         self.__level = 1
         self.__experience = 0
-        self.__current_location = (0, 0)
+        self.__current_location = [0, 0]
 
     def set_current_hp(self, difference):
         self.__current_hp += difference
@@ -52,7 +52,7 @@ class Character:
         return self.__experience
 
     def get_current_location(self):
-        return self.__experience
+        return self.__current_location
 
     def print_stat(self):
         headers = ["Character", "Level", "HP", "Experience", "Current location"]
@@ -63,13 +63,13 @@ class Character:
 
     def move_to(self, direction):
         if direction == 'North':
-            self.__current_location[1] -= 1
-        elif direction == 'South':
-            self.__current_location[1] += 1
-        elif direction == 'West':
             self.__current_location[0] -= 1
-        elif direction == 'East':
+        elif direction == 'South':
             self.__current_location[0] += 1
+        elif direction == 'West':
+            self.__current_location[1] -= 1
+        elif direction == 'East':
+            self.__current_location[1] += 1
 
 
 def main():
