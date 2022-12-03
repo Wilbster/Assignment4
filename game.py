@@ -4,37 +4,44 @@ A01307815
 Wilber Lin
 A01331142
 """
-from board import make_board
-from character import make_character, choose_name
+from board import make_board, get_land_layout, get_map_legend, draw_map
+from character import Character
+from settings import make_character, choose_name
 from describe import describe_current_location
-from control import get_user_choice, validate_move, move_character
+from control import validate_move, get_player_choice
 from challenge import check_for_challenges, execute_challenge_protocol
 
 
 
 def game(): # called from main
-    rows = 10
-    columns = 10
-    board = make_board(rows, columns)
-    player_name = choose_name()
-    character = make_character(player_name)
+    layout = get_land_layout("Verden")
+    board = make_board(layout)
+    map_legend = get_map_legend("Verden")
+    character = Character("OZ")
+    draw_map(board, map_legend, character.get_current_location())
     achieved_goal = False
     while not achieved_goal:
         #Tell the user where they are
-        describe_current_location(board, character)
-        direction = get_user_choice()
-        valid_move = validate_move(board, character, direction)
+        situation = "test"
+        options = ["North", "South", "West", "South"]
+        # describe_current_location(board, character)
+        direction = get_player_choice(situation, options)
+        valid_move = validate_move(character, direction)
         if valid_move:
-            move_character(character, direction)
-            describe_current_location(board, character)
-            there_is_a_challenge = check_for_challenges()
-            if there_is_a_challenge:
-                execute_challenge_protocol(character)
-                """
+            character.move_to(direction)
+            # move_character(character, direction)
+            print(character.get_current_location())
+            character_location = character.get_current_location()
+            draw_map(board, map_legend, character_location)
+            # describe_current_location(board, character)
+            # there_is_a_challenge = check_for_challenges()
+            # if there_is_a_challenge:
+            #     execute_challenge_protocol(character)
+            """
                 if character_has_leveled():
                     execute_glow_up_protocol()
                 achieved_goal = check_if_goal_attained(board, character)
-                """
+            """
 
         else:
             print('That is outside the boundaries of our realm!')
