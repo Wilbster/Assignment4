@@ -36,32 +36,13 @@ def get_player_choice(situation, options):
     print(situation)
     show_available_options(options)
     choice = int(input("Enter your choice "))
+    while choice not in range[1: len(options)]:
+        print("You must be tired from your long journeys. Take another shot")
+        choice = int(input("Enter your choice "))
     for number, option in enumerate(options, 1):
         if choice == number:
             print(f"You have selected {option}")
             return option
-    print("You must be tired from your long journeys. Take another shot")
-    return get_player_choice(situation, options)
-
-
-# def validate_move(board, character, direction):
-#     coordinates = (character['X-coordinate'], character['Y-coordinate'])
-#     if direction == 'North':
-#         new_coord = coordinates[1] - 1
-#         new_coordinates = (coordinates[0], new_coord)
-#     elif direction == 'South':
-#         new_coord = coordinates[1] + 1
-#         new_coordinates = (coordinates[0], new_coord)
-#     elif direction == 'West':
-#         new_coord = coordinates[0] - 1
-#         new_coordinates = (new_coord, coordinates[1])
-#     elif direction == 'East':
-#         new_coord = coordinates[0] + 1
-#         new_coordinates = (new_coord, coordinates[1])
-#     if new_coordinates in board:
-#         return True
-#     else:
-#         return False
 
 
 def define_updated_location(character, direction):
@@ -81,7 +62,6 @@ def define_updated_location(character, direction):
 
 def validate_move(character, direction):
     updated_location = define_updated_location(character, direction)
-    print("updated location:", updated_location)
     if updated_location[0] < 0 or updated_location[1] < 0 or updated_location[0] > 9 or updated_location[1] > 9:
         # raise OutOfTheRealmError()
         print("You have reached the world's edge. None but dragons play past here. You should turn back.")
