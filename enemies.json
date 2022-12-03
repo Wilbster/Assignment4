@@ -4,7 +4,7 @@
       "name" : "Drunk bandits",
       "location" : "Tavern",
       "description" : "A group of drunk bandits attacks Witcher. They are armed with old rusty knives and axes. All the scars they have to tell Witcher that the gang has some experience in fighting and robbery. But they are still just a couple of hillbillies who do not understand whom they are trying to rob. Witcher pulls his sword out and is ready to fight.Ω",
-      "defaultHP" : 0,
+      "defaultHP" : 5,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 20
@@ -13,7 +13,7 @@
       "name" : "Hyenas",
       "location" : "Grass field",
       "description": "A group of five small, angry, and hungry hyenas attacks Witcher. They are hungry and furious but also very cowardly. They always attack together as one ominous ball of fur. It is an easy height for our hero.",
-      "defaultHP" : 0,
+      "defaultHP" : 5,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 10
@@ -22,7 +22,7 @@
       "name" : "Warg",
       "location" : "Forest",
       "description": "Warg attacked the witcher. Warg is a nasty and ferocious subspecies of wolves. But it is still just an animal, not a monster. The fight with a Warg does not bother our hero.",
-      "defaultHP" : 0,
+      "defaultHP" : 10,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 10
@@ -31,7 +31,7 @@
       "name" : "Leshy",
       "location" : "Forest",
       "description": "Leshy attacked the Witcher. Leshy is an ancient creature who lives in the forest. People say that he protects wildlife, but Witcher knows Leshy's true and evil nature. It is a highly intelligent monster that looks like a live tree with two extra-long arms. His attacks are slow but deadly. Even for an experienced witcher, it is a real challenge to fight Leshy, but the reward is significant and worth the risk.",
-      "defaultHP" : 0,
+      "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 25
@@ -40,7 +40,7 @@
       "name" : "Kikimore Warrior",
       "location" : "Swamp",
       "description": "Kikimore Warrior attacked the witcher. It is a dangerous and fascinating mix of a spider and a crab a size of a small bear. Warriors protect a Kikimora hive and also hunt for food. They usually finish animals who get bogged down in the bog, then hayl they pray back to the hive. A human being in the swampland is perfect prey for a Kikimore Warrior, and it took his chance to bring some fresh food back to the hive.",
-      "defaultHP" : 0,
+      "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 10
@@ -49,7 +49,7 @@
       "name" : "Kikimore Queen",
       "location" : "Swamp",
       "description": "Kikimore Queen attacked the Witcher. She is twice as big as a Kikimore Warrior. Usually, Queen does not leave the hive. But she feels that the Witcher is near her hive, and to protect the hive, she hisses menacingly and furiously attacks our hero with her six claws.",
-      "defaultHP" : 0,
+      "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 25
@@ -58,7 +58,7 @@
       "name" : "White Wolf",
       "location" : "Mountains",
       "description": "White Wolf attacked the witcher. White Wolf is the biggest wolf in all four kingdoms. It is twice as big as a Gray Wolf. People have faced White Wolfs too often in the last couple of years, and only a few were lucky enough to escape alive. But it is still just an animal, not a monster. The fight with White Wolf does not bother our hero.",
-      "defaultHP" : 0,
+      "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 10
@@ -67,7 +67,7 @@
       "name" : "Ice Troll",
       "location" : "Mountains",
       "description": "Ice Troll attacked the witcher. It is not very intelligent, like all trolls, but a very strong and powerful creature, 4 meters in height. It is a real challenge even for an experienced witcher to fight an Ice Troll. But the reward is significant, and it is worth the risk.",
-      "defaultHP" : 0,
+      "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 25
@@ -76,7 +76,7 @@
       "name" : "Drowner",
       "location" : "River",
       "description": "Drowner attacked the Witcher. A long ago, it was a human who had drowned in the river in a pond. And now it is a frightful creature of mud and scum. Drowner stalked the Witcher and attacked him from behind, using his long and sharp claws to tear the throat of his victim.",
-      "defaultHP" : 0,
+      "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 10
@@ -85,7 +85,7 @@
       "name" : "Water Hag",
       "location" : "River",
       "description": "Water Hag attacked the Witcher. Like a Drowner, Water Hag was a human that had drowned in the river, not an ordinary human but a witch. And now that human is reborn in this filthy and sneaky hunter. Water Hag attacks fast and furious. It is a real challenge even for an experienced witcher to fight a Water Hag, but in a river, our hero cannot escape Water Hag and has to fight for his life.",
-      "defaultHP" : 0,
+      "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 20
@@ -94,7 +94,7 @@
       "name" : "Ghoul",
       "location" : "Scorched earth",
       "description": "Ghoul attacked the Witcher. Ghoul is the most common corpse-eater, usually roaming around graveyards in small groups. Devastated territories always attract a lot of ghouls. They sneak around battlefields and burn villages and sometimes can attack people. A mature Ghoul decided that Witcher would be a part of his ration today. For our hero, it will be an easy fight.",
-      "defaultHP" : 0,
+      "defaultHP" : 15,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 10
@@ -103,7 +103,7 @@
       "name" : "Katakan",
       "location" : "Scorched earth",
       "description": "Katakan attacked the Witcher. Katakan is a breed of vampire, but unlike other vampires, he can and loves to eat carrion. He has long, sharp claws, which continue to grow throughout his life. Devastated territories always attack marauders who seek an easy way to get rich by selling what they find on dead bodies. They are easy prey for Katakan. But Witcher is not easy prey, and it will be a hot fight.",
-      "defaultHP" : 0,
+      "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 25
@@ -112,7 +112,7 @@
       "name" : "Basilisk",
       "location" : "Basilisk cave",
       "description": "TBD",
-      "defaultHP" : 0,
+      "defaultHP" : 1000,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 25

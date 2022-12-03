@@ -7,6 +7,7 @@ A01331142
 
 
 from character import Character
+from board import get_land_layout, make_board, get_map_legend, draw_map
 
 
 def choose_name():
@@ -27,3 +28,9 @@ def make_character(name):
 def set_up_character():
     character_name = choose_name()
     return make_character(character_name)
+
+def set_up_board():
+    layout = get_land_layout("Verden")
+    board = make_board(layout)
+    map_legend = get_map_legend("Verden")
+    draw_map(board, map_legend, (0, 0))
