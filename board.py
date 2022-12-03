@@ -75,7 +75,7 @@ def draw_map(board_typed, legend, current_location):
     for row in rows:
         for column in columns:
             location_type = board_typed[(row, column)]  # get location type assigned for (row, column)
-            if current_location == (row, column):
+            if current_location == [row, column]:
                 print(f"| X | ", end="")  # if character's location is equal to (row, column), print X
             else:
                 print(f"|{legend[location_type]}| ", end="")
@@ -88,7 +88,9 @@ def main():
     layout = get_land_layout("Verden")
     board = make_board(layout)
     map_legend = get_map_legend("Verden")
-    draw_map(board, map_legend, (1, 1))
+    print('legend:', map_legend)
+    draw_map(board, map_legend, [0, 0])
+
     # pass
 
 
