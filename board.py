@@ -105,6 +105,7 @@ def set_enemies(board):
             enemies_board[coordinates] = ['']
     enemies_board[(9, 9)] = 'Basilisk'
     print(enemies_board)
+    return enemies_board
 
 
 def main():
