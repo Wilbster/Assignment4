@@ -20,8 +20,11 @@ class Character:
         self.__experience = 0
         self.__current_location = [0, 0]
 
-    def set_current_hp(self, difference):
+    def change_current_hp(self, difference):
         self.__current_hp += difference
+
+    def set_current_hp(self, value):
+        self.__current_hp = value
 
     def set_max_hp(self, level_up_hp):
         self.__max_hp += level_up_hp
