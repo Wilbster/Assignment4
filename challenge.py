@@ -9,6 +9,7 @@ import random
 
 from control import get_player_choice
 from magic import execute_combat_magic
+from settings import display_narrator_text
 
 
 def check_for_enemies(character, board):
@@ -81,6 +82,22 @@ def execute_combat_protocol(character, board):
         input()
     else:
         print(f"Alas, {character.get_name()}, you have been slain in combat.")
+
+
+def is_mission_completed(board: dict) -> bool:
+    """
+    Define if the main enemy is killed.
+
+    :param board: a dictionary
+    :precondition: board must be a non-empty configured dictionary
+    :postcondition: evaluates if enemy's hp on th final location is equal to zero
+    :return: True - enemy's hp on th final location is equal to zero,
+    False - enemy's hp on th final location is greater or less than zero
+    """
+    coordinate = len(board) - 1
+    enemy = board[(coordinate, coordinate)].get_enemy()
+    return enemy.get_hp() == 0
+
 
 
 def main():
