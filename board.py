@@ -103,19 +103,18 @@ def generate_description(board):
 
 
 def activate_enemies(board, enemies):
-    for location in board.values():
+    for coordinates, location in board.items():
         enemy_name = location.get_enemy()
         if enemy_name:
             alive_enemy = Enemy(enemy_name)
+            location.set_enemy(alive_enemy)
             for enemy in enemies["enemies"]:
                 if enemy["name"] == enemy_name:
                     enemy_data = enemy
                     alive_enemy.set_description(enemy_data["description"])
                     alive_enemy.set_hp(enemy_data["defaultHP"])
                     alive_enemy.set_experience(enemy_data["experience"])
-                    location.set_enemy(alive_enemy)
-
-
+                    break
 
 
 def set_enemies(board):
@@ -131,19 +130,17 @@ def set_enemies(board):
         location_type = location.get_location_type()
         if location_type in enemies_per_type_location.keys():
             location.set_enemy((random.choices(enemies_per_type_location[location_type] + ['']))[0])
-    board[(9, 9)].set_enemy = 'Basilisk'
+    board[(9, 9)].set_enemy('Basilisk')
     activate_enemies(board, enemies)
 
 
 def main():
     layout = get_land_layout("Verden")
     board = make_board(layout)
-    # map_legend = get_map_legend("Verden")
-    # draw_map(board, map_legend, [0, 0])
-    # generate_description(board)
+    map_legend = get_map_legend("Verden")
+    draw_map(board, map_legend, [0, 0])
+    generate_description(board)
     set_enemies(board)
-    print()
-
     print(board)
     # pass
 
