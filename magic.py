@@ -9,18 +9,15 @@ from control import get_player_choice
 
 def execute_combat_magic(character, enemy):
     spells = ('Fireball', 'Heal')
-    number_of_spells = len(spells)
-    options = enumerate(spells, 1)
-    print('Choose a spell.')
-    choice = get_player_choice(options)
+    choice = get_player_choice(spells)
     if choice == 'Fireball':
         if mana_drain(character):
             level = character.get_level()
             damage = 3*level**2
             enemy.change_hp(-damage)
             print(f"A giant fireball bursts forth from the palms of your hands, doing {damage} points of damage"
-                  f"to the enemy!")
-            print(f"The enemy now has {enemy.get} ")
+                  f" to the enemy!")
+            print(f"The enemy now has {enemy.get_hp()} HP. ")
     if choice == 'Heal':
         if mana_drain(character):
             max_hp = character.get_max_hp()
