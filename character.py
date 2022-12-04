@@ -14,6 +14,8 @@ class Character:
         self.__name = name
         self.__current_hp = 5
         self.__max_hp = 5
+        self.__current_mana = 5
+        self.__max_mana = 5
         self.__level = 1
         self.__experience = 0
         self.__current_location = [0, 0]
@@ -41,6 +43,15 @@ class Character:
 
     def get_max_hp(self):
         return self.__max_hp
+
+    def get_current_mana(self):
+        return self.__current_mana
+
+    def change_current_mana(self, change):
+        self.__current_mana += change
+
+    def get_max_mana(self):
+        return self.__max_mana
 
     def get_level(self):
         return self.__level
