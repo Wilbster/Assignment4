@@ -32,13 +32,12 @@ def show_available_options(options):
         print(f'{number} - {option}')
 
 
-def get_player_choice(situation, options):
-    print(situation)
-    show_available_options(options)
-    choice = int(input("Enter your choice "))
-    while choice not in range[1: len(options)]:
+def get_player_choice(options):
+    choice = input("Enter your choice ")
+    while choice not in range(1, len(options)+1):
         print("You must be tired from your long journeys. Take another shot")
-        choice = int(input("Enter your choice "))
+        choice = input("Enter your choice ")
+    choice = int(choice)
     for number, option in enumerate(options, 1):
         if choice == number:
             print(f"You have selected {option}")

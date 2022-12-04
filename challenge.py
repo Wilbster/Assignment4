@@ -24,7 +24,7 @@ def check_for_enemies(character, enemy_board):
     if enemies_present != '':
         print(f"You see a threat in this area. {enemies_present} are roaming! Would you like to attack them?")
         options = ('Attack', 'Hide')
-        choice = get_player_choice_2(options)
+        choice = get_player_choice(options)
         if choice == 'Attack':
             return True
         else:
