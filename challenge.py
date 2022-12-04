@@ -9,6 +9,7 @@ import random
 
 from control import get_player_choice
 from magic import execute_combat_magic
+from settings import display_narrator_text
 
 
 def check_for_enemies(character, board):
@@ -40,7 +41,6 @@ def execute_combat_protocol(character, board):
 
     enemy = board[location].get_enemy()
     enemy_name = enemy.get_name()
-    enemy_hp = enemy.get_hp()
 
     print(f"You are attacked by a {enemy_name}")
     print('Enter anything to continue')
@@ -73,6 +73,7 @@ def execute_combat_protocol(character, board):
         input()
     else:
         print(f"Alas, {character.get_name()}, you have been slain in combat.")
+        display_narrator_text("game_over_screen.txt")
 
 
 def main():
