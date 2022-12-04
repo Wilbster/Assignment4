@@ -13,7 +13,7 @@ def execute_combat_magic(character, enemy):
     if choice == 'Fireball':
         if mana_drain(character):
             level = character.get_level()
-            damage = 3*level**2
+            damage = 3*level**level
             enemy.change_hp(-damage)
             print(f"A giant fireball bursts forth from the palms of your hands, doing {damage} points of damage"
                   f" to the enemy!")

@@ -112,7 +112,7 @@
       "name" : "Basilisk",
       "location" : "Basilisk cave",
       "description": "TBD",
-      "defaultHP" : 100,
+      "defaultHP" : 800,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 25
