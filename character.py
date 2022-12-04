@@ -10,13 +10,10 @@ from prettytable import PrettyTable
 
 class Character:
 
-    hp = 5
-    max_hp = 5
-
     def __init__(self, name):
         self.__name = name
-        self.__current_hp = Character.hp
-        self.__max_hp = Character.max_hp
+        self.__current_hp = 5
+        self.__max_hp = 5
         self.__level = 1
         self.__experience = 0
         self.__current_location = [0, 0]
