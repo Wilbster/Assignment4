@@ -58,7 +58,7 @@ def execute_combat_protocol(character, board):
             print(f"{enemy_name}'s HP: {enemy.get_hp()}")
         else:
             print(f"The {enemy_name} lands a strike on you!")
-            character.set_current_hp(-1)
+            character.change_current_hp(-1)
             print(f"Your HP: {character.get_current_hp()}")
             print(f"{enemy_name}'s HP: {enemy.get_hp()}")
         print('Enter 1 to cast a spell, or enter anything else to continue.')
