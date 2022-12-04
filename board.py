@@ -11,16 +11,8 @@ import random
 from prettytable import PrettyTable
 
 from enemy import Enemy
-from location import Location
 
-map_art = """___  ___                     __   _   _              _            
-|  \/  |                    / _| | | | |            | |           
-| .  . | __ _ _ __     ___ | |_  | | | | ___ _ __ __| | ___ _ __  
-| |\/| |/ _` | '_ \   / _ \|  _| | | | |/ _ \ '__/ _` |/ _ \ '_ \ 
-| |  | | (_| | |_) | | (_) | |   \ \_/ /  __/ | | (_| |  __/ | | |
-\_|  |_/\__,_| .__/   \___/|_|    \___/ \___|_|  \__,_|\___|_| |_|
-             | |                                                  
-             |_|        """
+from location import Location
 
 
 def get_land_layout(map_name):
@@ -51,8 +43,11 @@ def print_map_legend(legend):
     for location_type, symbol in legend.items():
         headers.append(location_type)
         symbols.append(symbol)
-    table = PrettyTable(headers)
-    table.add_row(symbols)
+    table = PrettyTable(headers[:(2 * len(headers)//3)])
+    table.add_row(symbols[:(2 * len(symbols)//3)])
+    print(table)
+    table = PrettyTable(headers[(2 * len(headers) // 3):])
+    table.add_row(symbols[(2 * len(symbols) // 3):])
     print(table)
 
 
@@ -69,7 +64,6 @@ def make_board(layout):
 
 
 def draw_map(board_typed, legend, current_location):
-    print(f'{map_art}\n')
     rows = set()
     columns = set()
     for key in board_typed.keys():
@@ -100,6 +94,15 @@ def generate_description(board):
             location_description_sounds = random.choices(type_description_options["sounds"])
             location.set_description(' '.join(location_description_type + location_description_surroundings +
                                               location_description_sounds))
+
+
+def add_unique_descriptions(board):
+    with open('unique_locations_description.json', 'r') as descriptions_options:
+        descriptions = json.load(descriptions_options)
+    for coordinates, location in board.items():
+        location_type = location.get_location_type()
+        if location_type in descriptions:
+            location.set_description(descriptions[location_type])
 
 
 def activate_enemies(board, enemies):
@@ -140,8 +143,9 @@ def main():
     map_legend = get_map_legend("Verden")
     draw_map(board, map_legend, [0, 0])
     generate_description(board)
+    add_unique_descriptions(board)
     set_enemies(board)
-    print(board)
+    board[(1, 2)].describe_location()
     # pass
 
 
