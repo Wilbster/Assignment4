@@ -47,4 +47,4 @@ class Enemy:
         print(self.__description)
 
     def __str__(self):
-        return f'{self.__enemy_name}, {self.__description}, {self.__hp}, {self.__experience}'
+        return f'{self.__enemy_name} | HP: {self.__hp}, Experience: {self.__experience}, \n{self.__description}'
