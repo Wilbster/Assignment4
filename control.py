@@ -33,8 +33,10 @@ def show_available_options(options):
 
 
 def get_player_choice(options):
+    for option in enumerate(options, 1):
+        print(f"{option[0]}: {option[1]}")
     choice = input("Enter your choice ")
-    while choice not in range(1, len(options)+1):
+    while choice not in '1234':
         print("You must be tired from your long journeys. Take another shot")
         choice = input("Enter your choice ")
     choice = int(choice)
