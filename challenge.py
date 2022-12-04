@@ -40,27 +40,26 @@ def execute_combat_protocol(character, board):
 
     enemy = board[location].get_enemy()
     enemy_name = enemy.get_name()
-    enemy_hp = enemy.get_hp()
 
     print(f"You are attacked by a {enemy_name}")
     print('Enter anything to continue')
     input()
 
     print('<-----------------COMBAT HAS BEGUN------------------->')
-    while character.get_current_hp() > 0 and enemy_hp > 0:
+    while character.get_current_hp() > 0 and enemy.get_hp() > 0:
         print(f"You and the {enemy_name} lunge at each other.")
         character_roll = (character.get_current_hp())*random.choice((1, 2, 3, 4, 5, 6))
-        enemy_roll = enemy['HP']*random.choice((1, 2, 3, 4, 5, 6))
+        enemy_roll = enemy.get_hp() * random.choice((1, 2, 3, 4, 5, 6))
         if character_roll >= enemy_roll:
             print(f"You land a strike on the {enemy_name}")
             enemy.change_hp(-1)
             print(f"Your HP: {character.get_current_hp()}")
-            print(f"{enemy_name}'s HP: {enemy_hp}")
+            print(f"{enemy_name}'s HP: {enemy.get_hp()}")
         else:
             print(f"The {enemy_name} lands a strike on you!")
             character.set_current_hp(-1)
             print(f"Your HP: {character.get_current_hp()}")
-            print(f"{enemy_name}'s HP: {enemy_hp}")
+            print(f"{enemy_name}'s HP: {enemy.get_hp()}")
         print('Enter 1 to cast a spell, or enter anything else to continue.')
         choice = input()
         if choice == '1':
