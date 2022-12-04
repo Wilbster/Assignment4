@@ -7,7 +7,7 @@
       "defaultHP" : 5,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 20
+      "experience" : 10
     },
     {
       "name" : "Hyenas",
@@ -25,7 +25,7 @@
       "defaultHP" : 10,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 10
+      "experience" : 20
     },
     {
       "name" : "Leshy",
@@ -34,7 +34,7 @@
       "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 25
+      "experience" : 40
     },
     {
       "name" : "Kikimore Warrior",
@@ -43,7 +43,7 @@
       "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 10
+      "experience" : 40
     },
     {
       "name" : "Kikimore Queen",
@@ -52,7 +52,7 @@
       "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 25
+      "experience" : 40
     },
     {
       "name" : "White Wolf",
@@ -61,16 +61,16 @@
       "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 10
+      "experience" : 40
     },
     {
       "name" : "Ice Troll",
       "location" : "Mountains",
       "description": "Ice Troll attacked the witcher. It is not very intelligent, like all trolls, but a very strong and powerful creature, 4 meters in height. It is a real challenge even for an experienced witcher to fight an Ice Troll. But the reward is significant, and it is worth the risk.",
-      "defaultHP" : 20,
+      "defaultHP" : 40,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 25
+      "experience" : 80
     },
     {
       "name" : "Drowner",
@@ -79,7 +79,7 @@
       "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 10
+      "experience" : 40
     },
     {
       "name" : "Water Hag",
@@ -88,31 +88,31 @@
       "defaultHP" : 20,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 20
+      "experience" : 40
     },
     {
       "name" : "Ghoul",
       "location" : "Scorched earth",
       "description": "Ghoul attacked the Witcher. Ghoul is the most common corpse-eater, usually roaming around graveyards in small groups. Devastated territories always attract a lot of ghouls. They sneak around battlefields and burn villages and sometimes can attack people. A mature Ghoul decided that Witcher would be a part of his ration today. For our hero, it will be an easy fight.",
-      "defaultHP" : 15,
+      "defaultHP" : 40,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 10
+      "experience" : 80
     },
     {
       "name" : "Katakan",
       "location" : "Scorched earth",
       "description": "Katakan attacked the Witcher. Katakan is a breed of vampire, but unlike other vampires, he can and loves to eat carrion. He has long, sharp claws, which continue to grow throughout his life. Devastated territories always attack marauders who seek an easy way to get rich by selling what they find on dead bodies. They are easy prey for Katakan. But Witcher is not easy prey, and it will be a hot fight.",
-      "defaultHP" : 20,
+      "defaultHP" : 40,
       "minDamage" : 0,
       "maxDamage" : 0,
-      "experience" : 25
+      "experience" : 80
     },
     {
       "name" : "Basilisk",
       "location" : "Basilisk cave",
       "description": "TBD",
-      "defaultHP" : 1000,
+      "defaultHP" : 100,
       "minDamage" : 0,
       "maxDamage" : 0,
       "experience" : 25
