@@ -5,7 +5,7 @@ Wilber Lin
 A01331142
 """
 from board import make_board, get_land_layout, get_map_legend, draw_map, set_enemies, generate_description
-from character import Character
+from character import Character, character_should_level, level_up
 from settings import make_character, choose_name
 from describe import describe_current_location
 from control import validate_move, get_player_choice
@@ -38,8 +38,8 @@ def game(): # called from main
             enemy_fight = check_for_enemies(character, board)
             if enemy_fight:
                 execute_combat_protocol(character, board)
-        if character_should_level(character):
-            level_up(character)
+            if character_should_level(character):
+                level_up(character)
             """
                 if character_has_leveled():
                     execute_glow_up_protocol()

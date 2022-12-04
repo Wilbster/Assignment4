@@ -13,10 +13,10 @@ class Character:
     def __init__(self, name):
         self.__name = name
         self.__level = 1
-        self.__current_hp = 5*self.__level**2
-        self.__max_hp = 5*self.__level**2
+        self.__current_hp = 5
+        self.__max_hp = 5
         self.__current_mana = 5
-        self.__max_mana = 5*self.__level**2
+        self.__max_mana = 5
         self.__experience = 0
         self.__current_location = [0, 0]
 
@@ -27,7 +27,7 @@ class Character:
         self.__current_hp = value
 
     def set_max_hp(self, level_up_hp):
-        self.__max_hp += level_up_hp
+        self.__max_hp = level_up_hp
 
     def set_level(self):
         self.__level += 1
@@ -59,6 +59,9 @@ class Character:
     def get_max_mana(self):
         return self.__max_mana
 
+    def set_max_mana(self, value):
+        self.__max_mana = value
+
     def get_level(self):
         return self.__level
 
@@ -87,7 +90,7 @@ class Character:
 
 
 def character_should_level(character):
-    if character.get_level() < 2 and character.get_experience() > 30:
+    if character.get_level() < 2 and character.get_experience() > 9:
         return True
     elif character.get_level() < 3 and character.get_experience() > 130:
         return True
@@ -96,11 +99,13 @@ def character_should_level(character):
 
 
 def level_up(character):
-    if character.get_level() < 2 and character.get_experience() > 30:
+    if character.get_level() < 2 and character.get_experience() > 9:
         character.set_level()
     elif character.get_level() < 3 and character.get_experience() > 130:
         character.set_level()
-    print(f"Congratulations! You have levelled up! You now now a level {character.get_leve()} Witcher!")
+    print(f"Congratulations! You have levelled up! You now now a level {character.get_level()} Witcher!")
+    character.set_max_hp(character.get_max_hp()*character.get_level()**2)
+    character.set_max_mana(character.get_max_mana()*character.get_level()**2)
     character.set_current_hp(character.get_max_hp())
     character.set_current_mana(character.get_max_mana())
     print(f"Your health has been restored to its new maximum of {character.get_current_hp()}")

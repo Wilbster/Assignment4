@@ -41,8 +41,12 @@ def execute_combat_protocol(character, board):
     enemy = board[location].get_enemy()
     enemy_name = enemy.get_name()
     enemy_hp = enemy.get_hp()
+    enemy_damage = enemy_hp//4
+    experience_to_gain = enemy.get_experience()
 
-    print(f"You are attacked by a {enemy_name}")
+    character_damage = character.get_level()
+
+    print(f"You fight {enemy_name}")
     print('Enter anything to continue')
     input()
 
@@ -69,6 +73,10 @@ def execute_combat_protocol(character, board):
     if character.get_current_hp() > 0:
         print(f"You have vanquished your foe, {character.get_name()}!")
         print(f"Your renaming HP is, {character.get_current_hp()} out of your max of {character.get_max_hp()}!")
+        character.set_experience(experience_to_gain)
+        print(f"You have gained {experience_to_gain} experience from this fight. You now have "
+              f"{character.get_experience()} points!")
+        board[location].set_enemy('')
         print('Enter anything to continue.')
         input()
     else:
