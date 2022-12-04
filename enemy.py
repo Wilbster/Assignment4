@@ -15,6 +15,9 @@ class Enemy:
         self.__hp = ""
         self.__experience = ""
 
+    def get_name(self):
+        return self.__enemy_name
+
     def set_description(self, description):
         self.__description = description
 
@@ -29,6 +32,9 @@ class Enemy:
 
     def get_experience(self):
         return self.__experience
+
+    def change_hp(self, damage):
+        self.__hp += damage
 
     def show_enemy_stat(self):
         headers = ["Enemy", "HP", "Experience"]
