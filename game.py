@@ -38,6 +38,8 @@ def game(): # called from main
             enemy_fight = check_for_enemies(character, board)
             if enemy_fight:
                 execute_combat_protocol(character, board)
+        if character_should_level(character):
+            level_up(character)
             """
                 if character_has_leveled():
                     execute_glow_up_protocol()
