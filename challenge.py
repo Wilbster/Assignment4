@@ -8,17 +8,33 @@ import json
 import random
 import copy
 
+from control import get_player_choice
+from magic import execute_combat_magic
 
-def check_for_challenges(character, enemy_board):
-    location = (character.get_current_location()[0], character.get_current_location()[1])
-    if enemy_board[location] != ['']:
-        return True
+
+def check_for_enemies(character, enemy_board):
+
+    x_coord = character.get_current_location()[0]
+    y_coord = character.get_current_location()[1]
+
+    location = (x_coord, y_coord)
+
+    enemies_present = enemy_board[location][0]
+
+    if enemies_present != '':
+        print(f"You see a threat in this area. {enemies_present} are roaming! Would you like to attack them?")
+        options = ('Attack', 'Hide')
+        choice = get_player_choice_2(options)
+        if choice == 'Attack':
+            return True
+        else:
+            return False
     else:
         return False
 
 
 
-def execute_challenge_protocol(character, board):
+def execute_combat_protocol(character, enemy_board):
 
     x_coord = character.get_current_location()[0]
     y_coord = character.get_current_location()[1]
@@ -27,7 +43,7 @@ def execute_challenge_protocol(character, board):
     with open('enemies.json', 'r') as enemies_types:
         enemies = json.load(enemies_types)
 
-    enemy_type = board[location][0]
+    enemy_type = enemy_board[location][0]
     hp = 0
 
     for enemy in enemies['enemies']:
@@ -50,15 +66,15 @@ def execute_challenge_protocol(character, board):
             enemy['HP'] -= 1
             print(f"Your HP: {character.get_current_hp()}")
             print(f"{enemy['Name']}'s HP: {enemy['HP']}")
-            print('Enter anything to continue.')
-            input()
         else:
             print(f"The {enemy['Name']} lands a strike on you!")
             character.set_current_hp(-1)
             print(f"Your HP: {character.get_current_hp()}")
             print(f"{enemy['Name']}'s HP: {enemy['HP']}")
-            print('Enter anything to continue.')
-            input()
+        print('Enter 1 to cast a spell, or enter anything else to continue.')
+        choice = input()
+        if choice == '1':
+            execute_combat_magic(character, enemy)
 
     if character.get_current_hp() > 0:
         print(f"You have vanquished your foe, {character.get_name()}!")
