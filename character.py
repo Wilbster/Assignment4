@@ -12,11 +12,11 @@ class Character:
 
     def __init__(self, name):
         self.__name = name
-        self.__current_hp = 5
-        self.__max_hp = 5
-        self.__current_mana = 5
-        self.__max_mana = 5
         self.__level = 1
+        self.__current_hp = 5*self.__level**2
+        self.__max_hp = 5*self.__level**2
+        self.__current_mana = 5
+        self.__max_mana = 5*self.__level**2
         self.__experience = 0
         self.__current_location = [0, 0]
 
@@ -50,6 +50,9 @@ class Character:
     def get_current_mana(self):
         return self.__current_mana
 
+    def set_current_mana(self, value):
+        self.__current_mana = value
+
     def change_current_mana(self, change):
         self.__current_mana += change
 
@@ -82,6 +85,26 @@ class Character:
         elif direction == 'East':
             self.__current_location[1] += 1
 
+
+def character_should_level(character):
+    if character.get_level() < 2 and character.get_experience() > 30:
+        return True
+    elif character.get_level() < 3 and character.get_experience() > 130:
+        return True
+    else:
+        return False
+
+
+def level_up(character):
+    if character.get_level() < 2 and character.get_experience() > 30:
+        character.set_level()
+    elif character.get_level() < 3 and character.get_experience() > 130:
+        character.set_level()
+    print(f"Congratulations! You have levelled up! You now now a level {character.get_leve()} Witcher!")
+    character.set_current_hp(character.get_max_hp())
+    character.set_current_mana(character.get_max_mana())
+    print(f"Your health has been restored to its new maximum of {character.get_current_hp()}")
+    print(f"Your mana has been restored to its new maximum of {character.get_current_mana()}")
 
 def main():
     pass
