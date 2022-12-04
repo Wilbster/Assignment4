@@ -6,20 +6,17 @@ A01331142
 """
 from board import make_board, get_land_layout, get_map_legend, draw_map, set_enemies, generate_description
 from character import Character
-from settings import make_character, choose_name
+from settings import make_character, choose_name, display_narrator_text, set_up_character, set_up_board
 from describe import describe_current_location
 from control import validate_move, get_player_choice
 from challenge import check_for_enemies, execute_combat_protocol
 
 
 def game(): # called from main
-    layout = get_land_layout("Verden")
-    board = make_board(layout)
-    generate_description(board)
-    set_enemies(board)
+    display_narrator_text("start_page.txt")
     map_legend = get_map_legend("Verden")
-    character = Character("OZ")
-    draw_map(board, map_legend, character.get_current_location())
+    board = set_up_board("Verden")
+    character = make_character()
     achieved_goal = False
     while not achieved_goal and character.get_current_hp() > 0:
         #Tell the user where they are
