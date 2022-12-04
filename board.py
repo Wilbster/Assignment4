@@ -10,6 +10,9 @@ import random
 
 from prettytable import PrettyTable
 
+from enemy import Enemy
+from location import Location
+
 map_art = """___  ___                     __   _   _              _            
 |  \/  |                    / _| | | | |            | |           
 | .  . | __ _ _ __     ___ | |_  | | | | ___ _ __ __| | ___ _ __  
@@ -59,7 +62,7 @@ def make_board(layout):
     for row in layout:
         y_coordinate = 0
         for location_type in row:
-            board[(x_coordinate, y_coordinate)] = {"type": location_type, "description": "", "enemy": "Enemy"}
+            board[(x_coordinate, y_coordinate)] = Location(location_type)
             y_coordinate += 1
         x_coordinate += 1
     return board
@@ -74,9 +77,11 @@ def draw_map(board_typed, legend, current_location):
         columns.add(key[1])
     for row in rows:
         for column in columns:
-            location_type = board_typed[(row, column)]["type"]  # get location type assigned for (row, column)
+            # get location type assigned for (row, column)
+            location_type = board_typed[(row, column)].get_location_type()
             if current_location == [row, column]:
-                print(f"| X | ", end="")  # if character's location is equal to (row, column), print X
+                # if character's location is equal to (row, column), print X
+                print(f"| X | ", end="")
             else:
                 print(f"|{legend[location_type]}| ", end="")
         print()
@@ -86,18 +91,34 @@ def draw_map(board_typed, legend, current_location):
 def generate_description(board):
     with open('descriptions.json', 'r') as descriptions_options:
         descriptions = json.load(descriptions_options)
-    for coordinates, location_type in board.items():
-        if location_type["type"] in descriptions:
-            type_description_options = descriptions[location_type["type"]]
+    for coordinates, location in board.items():
+        location_type = location.get_location_type()
+        if location_type in descriptions:
+            type_description_options = descriptions[location_type]
             location_description_type = random.choices(type_description_options["type"])
             location_description_surroundings = random.choices(type_description_options["surrounding"])
             location_description_sounds = random.choices(type_description_options["sounds"])
-            board[coordinates]["description"] = ' '.join(location_description_type + location_description_surroundings +
-                                                         location_description_sounds)
+            location.set_description(' '.join(location_description_type + location_description_surroundings +
+                                              location_description_sounds))
+
+
+def activate_enemies(board, enemies):
+    for location in board.values():
+        enemy_name = location.get_enemy()
+        if enemy_name:
+            alive_enemy = Enemy(enemy_name)
+            for enemy in enemies["enemies"]:
+                if enemy["name"] == enemy_name:
+                    enemy_data = enemy
+                    alive_enemy.set_description(enemy_data["description"])
+                    alive_enemy.set_hp(enemy_data["defaultHP"])
+                    alive_enemy.set_experience(enemy_data["experience"])
+                    location.set_enemy(alive_enemy)
+
+
 
 
 def set_enemies(board):
-    enemies_board = {}
     with open('enemies.json', 'r') as enemies_types:
         enemies = json.load(enemies_types)
     enemies_per_type_location = {}
@@ -106,22 +127,24 @@ def set_enemies(board):
             enemies_per_type_location[enemy["location"]] = [enemy["name"]]
         else:
             enemies_per_type_location[enemy["location"]].append(enemy["name"])
-    for coordinates, location_type in board.items():
+    for coordinates, location in board.items():
+        location_type = location.get_location_type()
         if location_type in enemies_per_type_location.keys():
-            enemies_board[coordinates] = random.choices(enemies_per_type_location[location_type] + [''])
-        else:
-            enemies_board[coordinates] = ['']
-    enemies_board[(9, 9)] = 'Basilisk'
+            location.set_enemy((random.choices(enemies_per_type_location[location_type] + ['']))[0])
+    board[(9, 9)].set_enemy = 'Basilisk'
+    activate_enemies(board, enemies)
 
 
 def main():
     layout = get_land_layout("Verden")
     board = make_board(layout)
-    map_legend = get_map_legend("Verden")
-    draw_map(board, map_legend, [0, 0])
-    # set_enemies(board)
+    # map_legend = get_map_legend("Verden")
+    # draw_map(board, map_legend, [0, 0])
+    # generate_description(board)
+    set_enemies(board)
     print()
-    generate_description(board)
+
+    print(board)
     # pass
 
 
