@@ -22,7 +22,7 @@ def execute_combat_magic(character, enemy):
         if mana_drain(character):
             max_hp = character.get_max_hp()
             character.set_current_hp(max_hp)
-            print(f"You have used the mystic arts to heal yourself fully! You now have {character.get_max_hp()} HP left!")
+            print(f"You have used the mystic arts to heal yourself fully! You now have {character.get_current_hp()} HP left!")
     print('Enter anything to continue.')
     input()
 
