@@ -50,7 +50,7 @@ def execute_combat_protocol(character, board):
     while character.get_current_hp() > 0 and enemy_hp > 0:
         print(f"You and the {enemy_name} lunge at each other.")
         character_roll = (character.get_current_hp())*random.choice((1, 2, 3, 4, 5, 6))
-        enemy_roll = enemy['HP']*random.choice((1, 2, 3, 4, 5, 6))
+        enemy_roll = enemy.get_hp()*random.choice((1, 2, 3, 4, 5, 6))
         if character_roll >= enemy_roll:
             print(f"You land a strike on the {enemy_name}")
             enemy.change_hp(-1)
