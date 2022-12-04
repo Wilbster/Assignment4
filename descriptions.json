@@ -14,28 +14,69 @@
     "A cacophony of beastly sounds and the occasional roar of a large animal trying to scare away predators."]
   },
   "Grass field": {
-    "type": ["test", "test","test", "test"],
-    "surrounding" : ["test", "test","test", "test"],
-    "sounds" : ["test", "test","test", "test"]
+    "type": ["Witcher was walking through the endless field of clovers.",
+      "It is an abandoned field. Looks like the farmer left it a couple years ago.",
+      "Witcher stepped into the endless cornfield.",
+      "It is a grass field. Not a very safe place for a human."],
+    "surrounding" : ["Falcons are flying high and looking for a prey.",
+      "Strange sounds are coming from the south side of the field. It's definitely not human or animal. Monsters?",
+      "He hears that the hyenas are somewhere nearby.",
+      "A strong wind shakes the field."],
+    "sounds" : ["'It feels nice here, but I don't think that the journey will be so pleasant,' said Witcher.",
+      "It is windy and cold here. Beautiful but cold.",
+      "Witcher mentioned footprints. A group of hyenas is somewhere around.",
+      "'Howl of hyenas, where they are?'"]
   },
   "Mountains" : {
-    "type": ["test", "test","test", "test"],
-    "surrounding" : ["test", "test","test", "test"],
-    "sounds" : ["test", "test","test", "test"]
+    "type": ["The rocky road means Witcher is close to mountains.",
+      "Witcher is hiking between rocks and ice cubes.",
+      "It is a Verden Mountains region. True north, full of snow, white wolves, and ice trolls.",
+      "Witcher steps into a world of rocks, mountains, and snow."],
+    "surrounding" : ["These peaks in the Verden Mountains are some of the most beautiful you will ever see.",
+      "The mountains are beautiful. There is something about them that makes them magical. No matter where you take a look, you will see ice peaks.",
+      "There's nothing quite like a mountain. These beautiful, dangerous, unique geological features are often overlooked and under-appreciated.",
+      "It is a dangerous place for a traveler but not for a Witcher."],
+    "sounds" : ["It is windy and cold here. Beautiful but cold.",
+      "'An Ice Troll is somewhere nearby,' said Witcher out loud and pulled his sword out of a scabbard.",
+      "Witcher mentioned footprints. An old White Wolf is somewhere around.",
+      "'Hmm, Medallion's humming. It means that a monster is here,' said Witcher."]
   },
   "River": {
-    "type": ["test", "test","test", "test"],
-    "surrounding" : ["test", "test","test", "test"],
-    "sounds" : ["test", "test","test", "test"]
+    "type": ["Witcher walked out to the river. It is a wild and beautiful place, home to a variety of birds, fish, and animals.",
+      "A wide stormy river was in front of Witcher.",
+      "It is the Toina river. It is moving from the mountains in the north toward the sea in the south.",
+      "A beautiful river flowing through a forest."],
+    "surrounding" : ["Floating upright in the water, the deadwood has a breathtaking appearance and a mysterious, otherworldly feel. It is both beautiful and dangerous.",
+      "The water flowing down the mountain is very beautiful.",
+      "What is that sound? This is a waterfall cascading down a steep rock face into a deep river.",
+      "The river at the bottom of the waterfall was too fast-flowing for a swim."],
+    "sounds" : ["'Kurva,' Witcher swore. 'I hate being wet,' said Witcher",
+      "'A Drowner is somewhere nearby,' said Witcher out loud and pulled his sword out of a scabbard.",
+      "'Brr, I hate crossing rivers. But I have to continue my mission,' said Witcher",
+      "Witcher mentioned footprints. A couple of male White Wolves were here less than an hour ago."]
   },
   "Swamp" : {
-    "type": ["test", "test","test", "test"],
-    "surrounding" : ["test", "test","test", "test"],
-    "sounds" : ["test", "test","test", "test"]
+    "type": ["A swamp squelches under the feet of Witcher. He is in a swampland.",
+      "It is a swampland. The land of water, dirt, birch trees, and Kikimoras.",
+      "Witcher blew the dirt up to his waist, crossing the swampland.", "Swamp general description 4."],
+    "surrounding" : ["A rabbit ran past Witcher.", "Ravens sit on lopsided birch trees and look in on a stranger.",
+      "There are signs of the presence of kikimoras everywhere.", "The remains of a kikimora were barely visible in the dirt."],
+    "sounds" : ["'Howl of Kikimora, where it is?'", "'Kurva,' Witcher swore. 'I hate swamplands.'",
+      "'Hm, an abandoned kikimora nest. It is empty, but I can feel the presence of monsters here,' said Witcher out loud.",
+      "'Kikimora Warrior is somewhere nearby,' said Witcher out loud."]
   },
   "Scorched earth" : {
-    "type": ["The crisp and clean-looking town looked more like a jungle as trees and gardens grew beyond their unkempt boundaries."],
-    "surrounding" : ["The sounds of insects, winds, and creaking wood of trees which were once drowned out by the sounds of horses and people, had returned as the dominant sounds."],
-    "sounds" : ["Streets and streets of abandoned homes made for a terrifying thought. Each house was once a home belonging to a family, and now there was only emptiness."]
+    "type": ["The crisp and clean-looking town looked more like a jungle as trees and gardens grew beyond their unkempt boundaries.",
+    "Not a long time ago, it was a field full of crops. But now it is devastated.",
+    "The Death had spread across this part of Verden, and the fields were empty of life.",
+    "This is burned land."],
+    "surrounding" : ["The sounds of insects, winds, and creaking wood of trees which were once drowned out by the sounds of horses and people, had returned as the dominant sounds.",
+    "A destroyed village, ravaged by a fire, left with only memories of horror and destruction.",
+    "Corpses, ashes, and the smell of a battlefield are all around.",
+    "The remains of a destroyed farmer's house emerge into the light of a spring day, overgrown with grass and trees as if nature itself has reclaimed the land."],
+    "sounds" : ["Streets and streets of abandoned homes made for a terrifying thought. Each house was once a home belonging to a family, and now there was only emptiness.",
+    "'Hmm, Medallion's humming. It means that a monster is here,' said Witcher.",
+    "'A Katakan is somewhere nearby,' said Witcher out loud and pulled his sword out of a scabbard",
+    "'Scorched earth is a Heaven for Ghouls. These corpse-eaters could be everything. I should be careful,' said Witcher out loud"]
   }
 }
