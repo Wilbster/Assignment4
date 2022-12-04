@@ -4,22 +4,21 @@ A01307815
 Wilber Lin
 A01331142
 """
-import json
+
 import random
-import copy
 
 from control import get_player_choice
 from magic import execute_combat_magic
 
 
-def check_for_enemies(character, enemy_board):
+def check_for_enemies(character, board):
 
     x_coord = character.get_current_location()[0]
     y_coord = character.get_current_location()[1]
 
     location = (x_coord, y_coord)
 
-    enemies_present = enemy_board[location][0]
+    enemies_present = board[location].get_enemy()
 
     if enemies_present != '':
         print(f"You see a threat in this area. {enemies_present} are roaming! Would you like to attack them?")
@@ -33,44 +32,35 @@ def check_for_enemies(character, enemy_board):
         return False
 
 
-
-def execute_combat_protocol(character, enemy_board):
+def execute_combat_protocol(character, board):
 
     x_coord = character.get_current_location()[0]
     y_coord = character.get_current_location()[1]
     location = (x_coord, y_coord)
 
-    with open('enemies.json', 'r') as enemies_types:
-        enemies = json.load(enemies_types)
+    enemy = board[location].get_enemy()
+    enemy_name = enemy.get_name()
+    enemy_hp = enemy.get_hp()
 
-    enemy_type = enemy_board[location][0]
-    hp = 0
-
-    for enemy in enemies['enemies']:
-        if enemy['name'] == enemy_type:
-            hp = enemy['defaultHP']
-
-    enemy = {'Name': enemy_type, 'HP': hp}
-
-    print(f"You are attacked by a {enemy['Name']}")
+    print(f"You are attacked by a {enemy_name}")
     print('Enter anything to continue')
     input()
 
     print('<-----------------COMBAT HAS BEGUN------------------->')
-    while character.get_current_hp() > 0 and enemy['HP'] > 0:
-        print(f"You and the {enemy['Name']} lunge at each other.")
+    while character.get_current_hp() > 0 and enemy_hp > 0:
+        print(f"You and the {enemy_name} lunge at each other.")
         character_roll = (character.get_current_hp())*random.choice((1, 2, 3, 4, 5, 6))
         enemy_roll = enemy['HP']*random.choice((1, 2, 3, 4, 5, 6))
         if character_roll >= enemy_roll:
-            print(f"You land a strike on the {enemy['Name']}")
-            enemy['HP'] -= 1
+            print(f"You land a strike on the {enemy_name}")
+            enemy.change_hp(-1)
             print(f"Your HP: {character.get_current_hp()}")
-            print(f"{enemy['Name']}'s HP: {enemy['HP']}")
+            print(f"{enemy_name}'s HP: {enemy_hp}")
         else:
-            print(f"The {enemy['Name']} lands a strike on you!")
+            print(f"The {enemy_name} lands a strike on you!")
             character.set_current_hp(-1)
             print(f"Your HP: {character.get_current_hp()}")
-            print(f"{enemy['Name']}'s HP: {enemy['HP']}")
+            print(f"{enemy_name}'s HP: {enemy_hp}")
         print('Enter 1 to cast a spell, or enter anything else to continue.')
         choice = input()
         if choice == '1':
