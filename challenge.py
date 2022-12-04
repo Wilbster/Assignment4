@@ -40,6 +40,7 @@ def execute_combat_protocol(character, board):
 
     enemy = board[location].get_enemy()
     enemy_name = enemy.get_name()
+    enemy_hp = enemy.get_hp()
 
     print(f"You are attacked by a {enemy_name}")
     print('Enter anything to continue')
