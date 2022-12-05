@@ -30,8 +30,6 @@ def make_character() -> Character:
     print('Choose your name for this quest, Witcher.')
     name = input()
     character = Character(name)
-    print(f"Welcome to the realm of Verden, Monster Hunter {name}. Our lord and soverign, Supereme Ruler")
-    print("Christopher, rules with an iron fist.")
     return character
 
 
