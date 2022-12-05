@@ -15,21 +15,20 @@
 
 ## Required elements
 
-| Element                   | File | Line # |
-|:--------------------------|:-----|:-------|
-| Tuple                     | ---  | ---    |
-| List                      | ---  | ---    |
-| Dictionary comprehension  | ---  | ---    |
-| List comprehension        | ---  | ---    |
-| if-statement              | ---  | ---    |
-| For loop                  | ---  | ---    |
-| While loop                | ---  | ---    |
-| Membership operator (in)  | ---  | ---    |
-| Range                     | ---  | ---    |
-| itertools:                | ---  | ---    |
-| enumerate()               | ---  | ---    |
-| filter()                  | ---  | ---    |
-| map()                     | ---  | ---    |
-| random                    | ---  | ---    |
+| Element                   | File       | Line # |
+|:--------------------------|:-----------|:-------|
+| Tuple                     | board.py   | -60    |
+| List                      | board.py   | -40    |
+| List comprehension        | control.py | -39    |
+| if-statement              | ---        | ---    |
+| For loop                  | ---        | ---    |
+| While loop                | ---        | ---    |
+| Membership operator (in)  | ---        | ---    |
+| Range                     | ---        | ---    |
+| itertools:                | ---        | ---    |
+| enumerate()               | ---        | ---    |
+| filter()                  | ---        | ---    |
+| map()                     | ---        | ---    |
+| random                    | ---        | ---    |
 
 
