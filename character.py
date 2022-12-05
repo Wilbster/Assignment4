@@ -59,7 +59,7 @@ class Character:
     def get_max_mana(self) -> int:
         return self.__max_mana
 
-    def set_max_mana(self, value) -> int:
+    def set_max_mana(self, value: int):
         self.__max_mana = value
 
     def get_level(self) -> int:
