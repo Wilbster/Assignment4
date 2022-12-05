@@ -5,11 +5,10 @@ Wilber Lin
 A01331142
 """
 import time
-
 from character import Character
-
 from board import get_land_layout, make_board, get_map_legend, draw_map, generate_description, set_enemies, \
     add_unique_descriptions
+
 
 def pause():
     time.sleep(2)

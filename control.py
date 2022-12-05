@@ -6,8 +6,6 @@ A01331142
 """
 import copy
 
-from exceptions import OutOfTheRealmError
-
 
 def get_player_choice_v1():
 
@@ -64,7 +62,6 @@ def define_updated_location(character, direction):
 def validate_move(character, direction):
     updated_location = define_updated_location(character, direction)
     if updated_location[0] < 0 or updated_location[1] < 0 or updated_location[0] > 9 or updated_location[1] > 9:
-        # raise OutOfTheRealmError()
         print("You have reached the world's edge. None but dragons play past here. You should turn back.")
         return False
     else:

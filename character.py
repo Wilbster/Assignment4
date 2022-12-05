@@ -111,6 +111,7 @@ def level_up(character):
     print(f"Your health has been restored to its new maximum of {character.get_current_hp()}")
     print(f"Your mana has been restored to its new maximum of {character.get_current_mana()}")
 
+
 def main():
     pass
 
