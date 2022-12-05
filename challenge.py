@@ -95,7 +95,9 @@ def is_mission_completed(board: dict) -> bool:
 
 
 def main():
-    pass
+    """
+     Drive the program.
+     """
 
 
 if __name__ == '__main__':

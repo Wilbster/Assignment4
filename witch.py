@@ -33,7 +33,9 @@ def execute_witch_protocol():
 
 
 def main():
-    execute_witch_protocol()
+    """
+     Drive the program.
+     """
 
 
 if __name__ == '__main__':

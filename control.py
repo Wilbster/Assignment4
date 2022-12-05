@@ -5,6 +5,7 @@ Wilber Lin
 A01331142
 """
 import copy
+import sys
 
 
 def get_player_choice_v1():
@@ -34,6 +35,8 @@ def get_player_choice(options):
     for option in enumerate(options, 1):
         print(f"{option[0]}: {option[1]}")
     choice = input("Enter your choice ")
+    if choice == "quit":
+        sys.exit("This is it for today. Rest well!")
     while choice not in str([digit+1 for digit in range(len(options))]):
         print("You must be tired from your long journeys. Take another shot")
         choice = input("Enter your choice ")
@@ -54,8 +57,6 @@ def define_updated_location(character, direction):
         current_location[1] -= 1
     elif direction == 'East':
         current_location[1] += 1
-        print('updated location', current_location)
-        print('user location:', character.get_current_location)
     return current_location
 
 
@@ -69,7 +70,9 @@ def validate_move(character, direction):
 
 
 def main():
-    pass
+    """
+     Drive the program.
+     """
 
 
 if __name__ == '__main__':

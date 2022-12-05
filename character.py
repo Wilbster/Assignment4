@@ -113,7 +113,9 @@ def level_up(character):
 
 
 def main():
-    pass
+    """
+     Drive the program.
+     """
 
 
 if __name__ == '__main__':
