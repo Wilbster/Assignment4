@@ -14,6 +14,9 @@ from witch import at_witch_house, execute_witch_protocol
 
 
 def game():
+    """
+    Run the game Witcher: Fang of the Devil.
+    """
 
     display_narrator_text("start_page.txt")
     pause()

@@ -10,6 +10,12 @@ from control import get_player_choice
 
 
 def at_witch_house(character):
+    """
+    Check whether the charachter is at the 3 Witches Shack.
+
+    :param character: an object of type Character
+    :return: a boolean
+    """
     if character.get_current_location() == [7, 5]:
         return True
     else:
@@ -17,6 +23,9 @@ def at_witch_house(character):
 
 
 def execute_witch_protocol():
+    """
+    Execute the scenario of the talking frog.
+    """
 
     verse = ['kingchriswantsanitertool']
 
