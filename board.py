@@ -64,8 +64,9 @@ def print_map_legend(legend: dict) -> None:
     Print map legend in a table.
 
     :param legend: a dictionary
-    :precondition: legend musst be a non-empty dictionary, that contains type of location as a key and
+    :precondition: legend must be a non-empty dictionary, that contains type of location as a key and
     three characters as a value
+    :postcondition: produces a side effect nand prints map legend from given dictionary as a table
     """
     print()
     print('MAP LEGEND')
@@ -107,6 +108,19 @@ def make_board(layout: list) -> dict:
 
 
 def draw_map(board_typed: dict, legend: dict, current_location: list) -> None:
+    """
+    Print out board as a table with symbols.
+
+    :param board_typed: a dictionary
+    :param legend: a dictionary
+    :param current_location: a list
+    :precondition: board_typed must be a non-empty dictionary where values are Location objects
+    :precondition: legend must be a non-empty dictionary, that contains type of location as a key and
+    three characters as a value
+    :precondition: current_location must be a non-empty list of integers with length equal to two
+    :postcondition: prints out board as a table where each cell contains 3 characters.
+    Characters represent location type.
+    """
     rows = set()
     columns = set()
     for key in board_typed.keys():
@@ -126,6 +140,14 @@ def draw_map(board_typed: dict, legend: dict, current_location: list) -> None:
 
 
 def generate_description(board: dict) -> None:
+    """
+    Generate and set description for each item of given board.
+
+    :param board: a dictionary
+    :precondition: board must be a non-empty dictionary where values are Location objects
+    :postcondition: checks location_type of Location object,
+    generates and sets description out of options provided in descriptions.json for each location_type
+    """
     with open('descriptions.json', 'r') as descriptions_options:
         descriptions = json.load(descriptions_options)
     for location in board.values():
