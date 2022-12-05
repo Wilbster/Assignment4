@@ -25,7 +25,7 @@
 | While loop                | challenge.py |   55   |
 | Membership operator (in)  | board.py     |  128   |
 | Range                     | control.py   |   40   |
-| itertools:                | ---          |  ---   |
+| itertools:                | witch.py     |   25   |
 | enumerate()               | control.py   |   36   |
 | filter()                  | ---          |  ---   |
 | map()                     | ---          |  ---   |
