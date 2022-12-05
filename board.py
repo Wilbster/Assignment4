@@ -162,6 +162,24 @@ def generate_description(board: dict) -> None:
 
 
 def add_unique_descriptions(board: dict) -> None:
+    """
+    Set description for unique locations.
+
+    param board: a dictionary
+    :precondition: board must be a non-empty dictionary where values are Location objects
+    :postcondition: checks board for locations that match locations in unique_locations_description.json,
+    if the match was found, sets the description
+
+    >>> test_board = make_board([["Crossroad"]])
+    >>> add_unique_descriptions(test_board)
+    >>> description = test_board[(0, 0)].get_description()
+    >>> text_one = 'Witcher is outside the tavern on a crossroad. Roadsigns say if you turn to the east, you will reach'
+    >>> text_two =' the Verden Mountains. If you fo to the south, you will enter the Royal Forrest, and a Greater Swamp'
+    >>> text_three = ' lays to the south-east.'
+    >>> text = text_one + text_two + text_three
+    >>> text == description
+    True
+    """
     with open('unique_locations_description.json', 'r') as descriptions_options:
         descriptions = json.load(descriptions_options)
     for location in board.values():
@@ -171,6 +189,23 @@ def add_unique_descriptions(board: dict) -> None:
 
 
 def activate_enemies(board: dict, enemies: dict) -> None:
+    """
+    Create and set Enemy objects.
+
+    :param board: a dictionary
+    :param enemies: a dictionary
+    :precondition: board must be a non-empty dictionary where values are Location objects
+    :preconditions: enemies must be a non-empty dictionary
+    :postcondition: iterates through each Location on the board, if value of enemy attribute matches enemy name in
+    given enemy dictionary, creates and sets Enemy object, and sets its state based on given enemies dictionary
+
+    >>> test_board = make_board([["Forest"]])
+    >>> test_board[(0, 0)].set_enemy("Leshy")
+    >>> test_enemies = {"enemies" : [{"name" : "Leshy", "description" : "test", "defaultHP" : 20, "experience" : 20 }]}
+    >>> activate_enemies(test_board, test_enemies)
+    >>> test_board[(0, 0)].get_enemy()
+    Enemy(Leshy, 20, 20, test)
+    """
     for location in board.values():
         enemy_name = location.get_enemy()
         if enemy_name:
@@ -186,6 +221,19 @@ def activate_enemies(board: dict, enemies: dict) -> None:
 
 
 def set_enemies(board: dict) -> None:
+    """
+    Set enemy to the board based on enemies.json
+
+    :param board: a dictionary
+    :precondition: board must be a non-empty dictionary where values are Location objects
+    :postcondition: matches enemies to location type; sets the main monster to the last square of the board;
+    invokes enemies creation
+
+    >>> test_board = make_board([["Forest", "Forest"], ["Swamp", "Forest"]])
+    >>> set_enemies(test_board)
+    >>> test_board[(1, 1)].get_enemy()
+    Enemy(Basilisk, 800, 25, The Basilisk)
+    """
     with open('enemies.json', 'r') as enemies_types:
         enemies = json.load(enemies_types)
     enemies_per_type_location = {}
