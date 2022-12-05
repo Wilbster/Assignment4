@@ -39,10 +39,6 @@ def mana_drain(character):
         return False
 
 
-
-
-
-
 def main():
     """
      Drive the program.
