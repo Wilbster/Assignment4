@@ -8,7 +8,7 @@ from board import get_map_legend, draw_map
 from character import character_should_level, level_up
 from settings import make_character, display_narrator_text, set_up_board, pause
 from control import validate_move, get_player_choice
-from challenge import check_for_enemies, execute_combat_protocol
+from challenge import check_for_enemies, execute_combat_protocol, is_mission_completed
 
 
 def game():     # called from main
@@ -32,6 +32,9 @@ def game():     # called from main
             enemy_fight = check_for_enemies(character, board)
             if enemy_fight:
                 execute_combat_protocol(character, board)
+            if is_mission_completed(board):
+                achieved_goal = True
+                display_narrator_text("mission_completed_screen.txt")
             if character_should_level(character):
                 level_up(character)
             """
