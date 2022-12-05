@@ -10,7 +10,7 @@ from prettytable import PrettyTable
 
 class Character:
 
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         self.__name = name
         self.__level = 1
         self.__current_hp = 5
@@ -20,65 +20,65 @@ class Character:
         self.__experience = 0
         self.__current_location = [0, 0]
 
-    def change_current_hp(self, difference):
+    def change_current_hp(self, difference: int) -> None:
         self.__current_hp += difference
 
-    def set_current_hp(self, value):
+    def set_current_hp(self, value: int) -> None:
         self.__current_hp = value
 
-    def set_max_hp(self, level_up_hp):
+    def set_max_hp(self, level_up_hp: int) -> None:
         self.__max_hp = level_up_hp
 
-    def set_level(self):
+    def set_level(self) -> None:
         self.__level += 1
 
-    def set_experience(self, gained_experience):
+    def set_experience(self, gained_experience: int) -> None:
         self.__experience += gained_experience
 
-    def set_current_location(self, new_coordinates):
+    def set_current_location(self, new_coordinates: list) -> None:
         self.__current_location = new_coordinates
 
-    def get_name(self):
+    def get_name(self) -> str:
         return self.__name
 
-    def get_current_hp(self):
+    def get_current_hp(self) -> int:
         return self.__current_hp
 
-    def get_max_hp(self):
+    def get_max_hp(self) -> int:
         return self.__max_hp
 
-    def get_current_mana(self):
+    def get_current_mana(self) -> int:
         return self.__current_mana
 
-    def set_current_mana(self, value):
+    def set_current_mana(self, value: int) -> None:
         self.__current_mana = value
 
-    def change_current_mana(self, change):
+    def change_current_mana(self, change: int) -> None:
         self.__current_mana += change
 
-    def get_max_mana(self):
+    def get_max_mana(self) -> int:
         return self.__max_mana
 
-    def set_max_mana(self, value):
+    def set_max_mana(self, value) -> int:
         self.__max_mana = value
 
-    def get_level(self):
+    def get_level(self) -> int:
         return self.__level
 
-    def get_experience(self):
+    def get_experience(self) -> int:
         return self.__experience
 
-    def get_current_location(self):
+    def get_current_location(self) -> list:
         return self.__current_location
 
-    def print_stat(self):
+    def print_stat(self) -> None:
         headers = ["Character", "Level", "HP", "Experience", "Current location"]
         info = [self.__name, self.__level, self.__current_hp, self.__experience, self.__current_location]
         table = PrettyTable(headers)
         table.add_row(info)
         print(table)
 
-    def move_to(self, direction):
+    def move_to(self, direction: str) -> None:
         if direction == 'North':
             self.__current_location[0] -= 1
         elif direction == 'South':
@@ -89,7 +89,7 @@ class Character:
             self.__current_location[1] += 1
 
 
-def character_should_level(character):
+def character_should_level(character: Character) -> bool:
     """
     Check whether the Character should level up.
 
@@ -104,7 +104,7 @@ def character_should_level(character):
         return False
 
 
-def level_up(character):
+def level_up(character: Character) -> None:
     """
     Level up a character in Witcher: Fang of the Devil.
 
