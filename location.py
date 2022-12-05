@@ -22,17 +22,17 @@ class Location:
         :param location_type: a non-empty string
         :precondition: location_type must be a non-empty string
         :postcondition: initializes parameters of Location object. Location-type is initialized with given value,
-        description and enemy are initialized as empty strings
+        description - empty strings, enemy - None
 
         >>> test_location = Location("Hall")
         >>> type(test_location)
         <class 'location.Location'>
         >>> test_location
-        Location("Hall", , )
+        Location("Hall", , None)
         """
         self.__location_type = location_type
         self.__description = ""
-        self.__enemy = ""
+        self.__enemy = None
 
     def get_location_type(self) -> str:
         """
@@ -58,7 +58,7 @@ class Location:
         >>> test_location = Location("Hall")
         >>> test_location.set_description("test description")
         >>> test_location
-        Location("Hall", test description, )
+        Location("Hall", test description, None)
         """
         self.__description = description
 
@@ -103,8 +103,8 @@ class Location:
         >>> test_location.set_enemy(Enemy("Monster"))
         >>> test_location.get_enemy().set_description("kind")
         >>> test_location.get_enemy().set_experience(5)
-        >>> print(test_location.get_enemy())
-        Monster | HP: , Experience: 5, description: kind
+        >>> test_location.get_enemy()
+        Enemy(Monster, 0, 5, kind)
         """
         return self.__enemy
 
