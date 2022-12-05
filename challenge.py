@@ -82,7 +82,7 @@ def execute_combat_protocol(character: Character, board: dict) -> None:
 
     if character.get_current_hp() > 0:
         print(f"You have vanquished your foe, {character.get_name()}!")
-        print(f"Your renaming HP is, {character.get_current_hp()} out of your max of {character.get_max_hp()}!")
+        print(f"Your remaining HP is, {character.get_current_hp()} out of your max of {character.get_max_hp()}!")
         character.set_experience(experience_to_gain)
         print(f"You have gained {experience_to_gain} experience from this fight. You now have "
               f"{character.get_experience()} points!")
