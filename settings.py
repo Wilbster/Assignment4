@@ -31,7 +31,7 @@ def make_character() -> Character:
     print('Choose your name for this quest, Witcher.')
     name = input()
     character = Character(name)
-    print(f"Welcome to the realm of Thompsons, Monster Hunter {name}. Our lord and soverign, Supereme Ruler")
+    print(f"Welcome to the realm of Verden, Monster Hunter {name}. Our lord and soverign, Supereme Ruler")
     print("Christopher, rules with an iron fist.")
     return character
 
@@ -49,7 +49,7 @@ def set_up_board(map_name: str) -> dict:
     board = make_board(layout)
     map_legend = get_map_legend(map_name)
     generate_description(board)
-    add_unique_descriptions(board)
+    #add_unique_descriptions(board)
     set_enemies(board)
     file_name = f'map_of_{map_name.lower()}.txt'
     display_narrator_text(file_name)
