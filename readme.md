@@ -29,6 +29,6 @@
 | enumerate()               | control.py   |   36   |
 | filter()                  | ---          |  ---   |
 | map()                     | ---          |  ---   |
-| random                    | board.ppy    |   93   |
+| random                    | board.py     |   93   |
 
 
