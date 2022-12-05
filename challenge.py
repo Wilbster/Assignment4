@@ -20,11 +20,11 @@ def check_for_enemies(character, board):
     location = (x_coord, y_coord)
     enemies_present = board[location].get_enemy()
 
-    if enemies_present != '':
-        print(f"{enemies_present} menace you!!! Will you fight or run away?")
+    if enemies_present is not None:
+        print(f"{enemies_present.get_name()} menace you!!! Will you fight or run away?")
         options = ('Fight', 'Hide')
         choice = get_player_choice(options)
-        if choice == 'Attack':
+        if choice == 'Fight':
             return True
         else:
             return False
@@ -72,7 +72,7 @@ def execute_combat_protocol(character, board):
         character.set_experience(experience_to_gain)
         print(f"You have gained {experience_to_gain} experience from this fight. You now have "
               f"{character.get_experience()} points!")
-        board[location].set_enemy('')
+        board[location].set_enemy(None)
         print('Enter anything to continue.')
         input()
     else:
@@ -91,7 +91,7 @@ def is_mission_completed(board: dict) -> bool:
     False - enemy's hp on th final location is greater or less than zero
     """
     max_coordinate = int(math.sqrt(len(board)) - 1)
-    return board[(max_coordinate, max_coordinate)].get_enemy() == ''
+    return board[(max_coordinate, max_coordinate)].get_enemy() is None
 
 
 def main():
