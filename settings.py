@@ -4,11 +4,15 @@ A01307815
 Wilber Lin
 A01331142
 """
+import time
 
 from character import Character
 
 from board import get_land_layout, make_board, get_map_legend, draw_map, generate_description, set_enemies, \
     add_unique_descriptions
+
+def pause():
+    time.sleep(2)
 
 
 def make_character() -> Character:
@@ -49,7 +53,10 @@ def set_up_board(map_name: str) -> dict:
     set_enemies(board)
     file_name = f'map_of_{map_name.lower()}.txt'
     display_narrator_text(file_name)
+    pause()
     draw_map(board, map_legend, [0, 0])
+    pause()
+    board[0, 0].describe_location()
     return board
 
 
