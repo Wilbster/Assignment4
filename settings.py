@@ -48,7 +48,7 @@ def set_up_board(map_name: str) -> dict:
     board = make_board(layout)
     map_legend = get_map_legend(map_name)
     generate_description(board)
-    #add_unique_descriptions(board)
+    add_unique_descriptions(board)
     set_enemies(board)
     file_name = f'map_of_{map_name.lower()}.txt'
     display_narrator_text(file_name)
@@ -74,9 +74,9 @@ def display_narrator_text(file_name: str) -> None:
 
 
 def main():
-    display_narrator_text("start_page.txt")
-    display_narrator_text("game_over_screen.txt")
-    display_narrator_text("mission_completed_screen.txt")
+    """
+     Drive the program.
+     """
 
 
 if __name__ == '__main__':
