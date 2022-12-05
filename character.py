@@ -89,7 +89,7 @@ class Character:
             self.__current_location[1] += 1
 
 
-def character_should_level(character):
+def character_should_level(character: Character) -> bool:
     """
     Check whether the Character should level up.
 
@@ -104,7 +104,7 @@ def character_should_level(character):
         return False
 
 
-def level_up(character):
+def level_up(character: Character) -> None:
     """
     Level up a character in Witcher: Fang of the Devil.
 
