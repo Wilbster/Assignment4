@@ -81,6 +81,7 @@ def execute_combat_protocol(character, board):
         input()
     else:
         print(f"Alas, {character.get_name()}, you have been slain in combat.")
+        display_narrator_text("game_over_screen.txt")
 
 
 def is_mission_completed(board: dict) -> bool:
