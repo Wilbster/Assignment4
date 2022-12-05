@@ -130,7 +130,6 @@ def set_enemies(board):
             enemies_per_type_location[enemy["location"]] = [enemy["name"]]
         else:
             enemies_per_type_location[enemy["location"]].append(enemy["name"])
-    print(enemies_per_type_location)
     for location in board.values():
         location_type = location.get_location_type()
         if location_type in enemies_per_type_location.keys():
@@ -149,7 +148,7 @@ def main():
     add_unique_descriptions(board)
     set_enemies(board)
     board[(1, 2)].describe_location()
-    print(board)
+    # print(board)
     # pass
 
 
