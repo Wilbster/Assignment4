@@ -13,7 +13,7 @@ from challenge import check_for_enemies, execute_combat_protocol, is_mission_com
 from witch import at_witch_house, execute_witch_protocol
 
 
-def game():
+def game() -> None:
     """
     Run the game Witcher: Fang of the Devil.
     """

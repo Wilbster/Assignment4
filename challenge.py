@@ -7,12 +7,13 @@ A01331142
 import math
 import random
 
+from character import Character
 from control import get_player_choice
 from magic import execute_combat_magic
 from settings import display_narrator_text
 
 
-def check_for_enemies(character, board):
+def check_for_enemies(character: Character, board: dict) -> bool:
     """
     Check whether there are enemies on the board at the character's present location.
 
@@ -39,7 +40,7 @@ def check_for_enemies(character, board):
         return False
 
 
-def execute_combat_protocol(character, board):
+def execute_combat_protocol(character: Character, board: dict) -> None:
     """
     Execute the combat scenario of the Witcher: Fang of the Devil.
 
@@ -81,7 +82,7 @@ def execute_combat_protocol(character, board):
 
     if character.get_current_hp() > 0:
         print(f"You have vanquished your foe, {character.get_name()}!")
-        print(f"Your renaming HP is, {character.get_current_hp()} out of your max of {character.get_max_hp()}!")
+        print(f"Your remaining HP is, {character.get_current_hp()} out of your max of {character.get_max_hp()}!")
         character.set_experience(experience_to_gain)
         print(f"You have gained {experience_to_gain} experience from this fight. You now have "
               f"{character.get_experience()} points!")

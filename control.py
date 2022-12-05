@@ -14,6 +14,7 @@ def show_available_options(options):
 
 
 def get_player_choice(options):
+
     for option in enumerate(options, 1):
         print(f"{option[0]}: {option[1]}")
     choice = input("Enter your choice ")

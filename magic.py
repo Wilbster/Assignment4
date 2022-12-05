@@ -4,10 +4,12 @@ A01307815
 Wilber Lin
 A01331142
 """
+from character import Character
 from control import get_player_choice
+from enemy import Enemy
 
 
-def execute_combat_magic(character, enemy):
+def execute_combat_magic(character: Character, enemy: Enemy) -> None:
     spells = ('Fireball', 'Heal')
     choice = get_player_choice(spells)
     if choice == 'Fireball':
@@ -28,7 +30,7 @@ def execute_combat_magic(character, enemy):
     input()
 
 
-def mana_drain(character):
+def mana_drain(character: Character) -> bool:
     if character.get_current_mana() > 0:
         character.change_current_mana(-1)
         current_mana = character.get_current_mana()

@@ -6,12 +6,13 @@ A01331142
 """
 import itertools
 
+from character import Character
 from control import get_player_choice
 
 
-def at_witch_house(character):
+def at_witch_house(character: Character) -> bool:
     """
-    Check whether the charachter is at the 3 Witches Shack.
+    Check whether the character is at the 3 Witches Shack.
 
     :param character: an object of type Character
     :return: a boolean
@@ -22,7 +23,7 @@ def at_witch_house(character):
         return False
 
 
-def execute_witch_protocol():
+def execute_witch_protocol() -> None:
     """
     Execute the scenario of the talking frog.
     """
