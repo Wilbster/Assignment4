@@ -144,7 +144,7 @@ class Enemy:
         :postcondition: produces side effect and prints out this Enemy object name, hp and description in a table
         """
         headers = ["Enemy", "HP", "Experience"]
-        info = [self.__name, self.__hp, self.__experience]
+        info = [self.__enemy_name, self.__hp, self.__experience]
         table = PrettyTable(headers)
         table.add_row(info)
         print(table)
