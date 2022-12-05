@@ -40,11 +40,7 @@ def execute_combat_protocol(character, board):
 
     enemy = board[location].get_enemy()
     enemy_name = enemy.get_name()
-    enemy_hp = enemy.get_hp()
-
     experience_to_gain = enemy.get_experience()
-
-
 
     print(f"You fight {enemy_name}")
     print('Enter anything to continue')
@@ -96,7 +92,6 @@ def is_mission_completed(board: dict) -> bool:
     """
     max_coordinate = int(math.sqrt(len(board)) - 1)
     return board[(max_coordinate, max_coordinate)].get_enemy() == ''
-
 
 
 def main():
