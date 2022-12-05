@@ -11,7 +11,7 @@ from control import get_player_choice
 
 def at_witch_house(character):
     """
-    Check whether the charachter is at the 3 Witches Shack.
+    Check whether the character is at the 3 Witches Shack.
 
     :param character: an object of type Character
     :return: a boolean
