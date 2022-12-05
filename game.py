@@ -9,6 +9,7 @@ from character import character_should_level, level_up
 from settings import make_character, display_narrator_text, set_up_board, pause
 from control import validate_move, get_player_choice
 from challenge import check_for_enemies, execute_combat_protocol, is_mission_completed
+from witch import at_witch_house, execute_witch_protocol
 
 
 def game():     # called from main
@@ -29,6 +30,8 @@ def game():     # called from main
             character_location = character.get_current_location()
             draw_map(board, map_legend, character_location)
             board[(character_location[0], character_location[1])].describe_location()
+            if at_witch_house(character):
+                execute_witch_protocol()
             enemy_fight = check_for_enemies(character, board)
             if enemy_fight:
                 execute_combat_protocol(character, board)
