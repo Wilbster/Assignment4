@@ -4,6 +4,7 @@ A01307815
 Wilber Lin
 A01331142
 """
+
 from board import get_map_legend, draw_map
 from character import character_should_level, level_up
 from settings import make_character, display_narrator_text, set_up_board, pause
@@ -13,6 +14,7 @@ from witch import at_witch_house, execute_witch_protocol
 
 
 def game():
+
     display_narrator_text("start_page.txt")
     pause()
     map_legend = get_map_legend("Verden")
@@ -49,6 +51,9 @@ def game():
 
 
 def main():
+    """
+     Drive the program.
+     """
     game()
 
 
