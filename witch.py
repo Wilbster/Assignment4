@@ -24,7 +24,7 @@ def execute_witch_protocol():
 
     verses = itertools.cycle(verse)
 
-    while object:
+    while verses:
         print(f"What sounds like '{next(verses)}'")
         options = ("Let the frog finish.", 'Depart the frog.')
         choice = get_player_choice(options)
