@@ -140,16 +140,9 @@ def set_enemies(board):
 
 
 def main():
-    layout = get_land_layout("Verden")
-    board = make_board(layout)
-    map_legend = get_map_legend("Verden")
-    draw_map(board, map_legend, [0, 0])
-    generate_description(board)
-    add_unique_descriptions(board)
-    set_enemies(board)
-    board[(1, 2)].describe_location()
-    # print(board)
-    # pass
+    """
+     Drive the program.
+     """
 
 
 if __name__ == '__main__':
