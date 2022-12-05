@@ -7,13 +7,10 @@ A01331142
 import copy
 import sys
 
-
-def show_available_options(options):
-    for number, option in enumerate(options, 1):
-        print(f'{number} - {option}')
+from character import Character
 
 
-def get_player_choice(options):
+def get_player_choice(options: list) -> tuple:
 
     for option in enumerate(options, 1):
         print(f"{option[0]}: {option[1]}")
@@ -30,7 +27,7 @@ def get_player_choice(options):
             return option
 
 
-def define_updated_location(character, direction):
+def define_updated_location(character: Character, direction: str) -> list:
     current_location = copy.copy(character.get_current_location())
     if direction == 'North':
         current_location[0] -= 1
@@ -43,7 +40,7 @@ def define_updated_location(character, direction):
     return current_location
 
 
-def validate_move(character, direction):
+def validate_move(character: Character, direction: str) -> bool:
     updated_location = define_updated_location(character, direction)
     if updated_location[0] < 0 or updated_location[1] < 0 or updated_location[0] > 9 or updated_location[1] > 9:
         print("You have reached the world's edge. None but dragons play past here. You should turn back.")
