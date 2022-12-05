@@ -18,7 +18,7 @@ def at_witch_house(character):
 
 def execute_witch_protocol():
 
-    verse = ['kingchriswantsacycle']
+    verse = ['kingchriswantsanitertool']
 
     print('An enchanted frog appears and starts muttering...')
 
