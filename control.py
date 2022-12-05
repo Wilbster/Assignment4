@@ -8,24 +8,6 @@ import copy
 import sys
 
 
-def get_player_choice_v1():
-
-    print('Choose a direction in which to explore.')
-    print('1: North --- 2: South --- 3: East --- 4: West')
-    choice = input()
-    if choice == '1':
-        return 'North'
-    elif choice == '2':
-        return 'South'
-    elif choice == '3':
-        return 'East'
-    elif choice == '4':
-        return 'West'
-    else:
-        print('Invalid')
-        return get_player_choice_v1()
-
-
 def show_available_options(options):
     for number, option in enumerate(options, 1):
         print(f'{number} - {option}')
