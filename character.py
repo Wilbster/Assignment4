@@ -90,6 +90,12 @@ class Character:
 
 
 def character_should_level(character):
+    """
+    Check whether the Character should level up.
+
+    :param character: an object of type Character
+    :return: a boolean
+    """
     if character.get_level() < 2 and character.get_experience() > 29:
         return True
     elif character.get_level() < 3 and character.get_experience() > 149:
@@ -99,6 +105,13 @@ def character_should_level(character):
 
 
 def level_up(character):
+    """
+    Level up a character in Witcher: Fang of the Devil.
+
+    :param character: an object of the Character class
+    :precondition: character must have enough experience but not yet have been levelled up
+    postcondition: character is levelled up
+    """
     if character.get_level() < 2 and character.get_experience() > 29:
         character.set_level()
     elif character.get_level() < 3 and character.get_experience() > 149:
