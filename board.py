@@ -6,6 +6,7 @@ A01331142
 """
 
 import json
+import math
 import random
 
 from prettytable import PrettyTable
@@ -85,7 +86,7 @@ def draw_map(board_typed, legend, current_location):
 def generate_description(board):
     with open('descriptions.json', 'r') as descriptions_options:
         descriptions = json.load(descriptions_options)
-    for coordinates, location in board.items():
+    for location in board.values():
         location_type = location.get_location_type()
         if location_type in descriptions:
             type_description_options = descriptions[location_type]
@@ -99,14 +100,14 @@ def generate_description(board):
 def add_unique_descriptions(board):
     with open('unique_locations_description.json', 'r') as descriptions_options:
         descriptions = json.load(descriptions_options)
-    for coordinates, location in board.items():
+    for location in board.values():
         location_type = location.get_location_type()
         if location_type in descriptions:
             location.set_description(descriptions[location_type])
 
 
 def activate_enemies(board, enemies):
-    for coordinates, location in board.items():
+    for location in board.values():
         enemy_name = location.get_enemy()
         if enemy_name:
             alive_enemy = Enemy(enemy_name)
@@ -129,11 +130,13 @@ def set_enemies(board):
             enemies_per_type_location[enemy["location"]] = [enemy["name"]]
         else:
             enemies_per_type_location[enemy["location"]].append(enemy["name"])
-    for coordinates, location in board.items():
+    print(enemies_per_type_location)
+    for location in board.values():
         location_type = location.get_location_type()
         if location_type in enemies_per_type_location.keys():
             location.set_enemy((random.choices(enemies_per_type_location[location_type] + ['']))[0])
-    board[(9, 9)].set_enemy('Basilisk')
+    max_coordinate = int(math.sqrt(len(board)) - 1)
+    board[(max_coordinate, max_coordinate)].set_enemy('Basilisk')
     activate_enemies(board, enemies)
 
 
@@ -146,6 +149,7 @@ def main():
     add_unique_descriptions(board)
     set_enemies(board)
     board[(1, 2)].describe_location()
+    print(board)
     # pass
 
 

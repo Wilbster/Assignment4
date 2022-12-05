@@ -4,7 +4,7 @@ A01307815
 Wilber Lin
 A01331142
 """
-
+import math
 import random
 
 from control import get_player_choice
@@ -18,7 +18,6 @@ def check_for_enemies(character, board):
     y_coord = character.get_current_location()[1]
 
     location = (x_coord, y_coord)
-
     enemies_present = board[location].get_enemy()
 
     if enemies_present != '':
@@ -94,9 +93,8 @@ def is_mission_completed(board: dict) -> bool:
     :return: True - enemy's hp on th final location is equal to zero,
     False - enemy's hp on th final location is greater or less than zero
     """
-    coordinate = len(board) - 1
-    enemy = board[(coordinate, coordinate)].get_enemy()
-    return enemy.get_hp() == 0
+    max_coordinate = int(math.sqrt(len(board)) - 1)
+    return board[(max_coordinate, max_coordinate)].get_enemy() == ''
 
 
 

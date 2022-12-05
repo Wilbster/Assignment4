@@ -5,14 +5,13 @@ Wilber Lin
 A01331142
 """
 from board import get_map_legend, draw_map
-from character import Character, character_should_level, level_up
+from character import character_should_level, level_up
 from settings import make_character, display_narrator_text, set_up_board, pause
-from describe import describe_current_location
 from control import validate_move, get_player_choice
 from challenge import check_for_enemies, execute_combat_protocol
 
 
-def game(): # called from main
+def game():     # called from main
     display_narrator_text("start_page.txt")
     pause()
     map_legend = get_map_legend("Verden")
@@ -20,10 +19,8 @@ def game(): # called from main
     character = make_character()
     achieved_goal = False
     while not achieved_goal and character.get_current_hp() > 0:
-        #Tell the user where they are
-        situation = "test"
+        # Tell the user where they are
         options = ["North", "South", "West", "East"]
-        # describe_current_location(board, character)
         direction = get_player_choice(options)
         valid_move = validate_move(character, direction)
         if valid_move:
