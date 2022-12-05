@@ -11,8 +11,8 @@ from control import validate_move, get_player_choice
 from challenge import check_for_enemies, execute_combat_protocol, is_mission_completed
 
 
-def game():     # called from main
-    #display_narrator_text("start_page.txt")
+def game():
+    display_narrator_text("start_page.txt")
     pause()
     map_legend = get_map_legend("Verden")
     board = set_up_board("Verden")
@@ -37,12 +37,6 @@ def game():     # called from main
                 display_narrator_text("mission_completed_screen.txt")
             if character_should_level(character):
                 level_up(character)
-            """
-                if character_has_leveled():
-                    execute_glow_up_protocol()
-                achieved_goal = check_if_goal_attained(board, character)
-            """
-
         else:
             print('That is outside the boundaries of our realm!')
             print('Enter anything to continue.')
