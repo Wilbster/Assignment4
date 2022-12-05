@@ -111,7 +111,7 @@
     {
       "name" : "Basilisk",
       "location" : "Basilisk cave",
-      "description": "TBD",
+      "description": "The Basilisk",
       "defaultHP" : 800,
       "minDamage" : 0,
       "maxDamage" : 0,
