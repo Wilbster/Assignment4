@@ -90,18 +90,18 @@ class Character:
 
 
 def character_should_level(character):
-    if character.get_level() < 2 and character.get_experience() > 9:
+    if character.get_level() < 2 and character.get_experience() > 29:
         return True
-    elif character.get_level() < 3 and character.get_experience() > 130:
+    elif character.get_level() < 3 and character.get_experience() > 149:
         return True
     else:
         return False
 
 
 def level_up(character):
-    if character.get_level() < 2 and character.get_experience() > 9:
+    if character.get_level() < 2 and character.get_experience() > 29:
         character.set_level()
-    elif character.get_level() < 3 and character.get_experience() > 130:
+    elif character.get_level() < 3 and character.get_experience() > 149:
         character.set_level()
     print(f"Congratulations! You have levelled up! You now now a level {character.get_level()} Witcher!")
     character.set_max_hp(character.get_max_hp()*character.get_level()**2)

@@ -21,8 +21,8 @@ def check_for_enemies(character, board):
     enemies_present = board[location].get_enemy()
 
     if enemies_present != '':
-        print(f"You see a threat in this area. {enemies_present} are roaming! Would you like to attack them?")
-        options = ('Attack', 'Hide')
+        print(f"{enemies_present} menace you!!! Will you fight or run away?")
+        options = ('Fight', 'Hide')
         choice = get_player_choice(options)
         if choice == 'Attack':
             return True
@@ -41,10 +41,10 @@ def execute_combat_protocol(character, board):
     enemy = board[location].get_enemy()
     enemy_name = enemy.get_name()
     enemy_hp = enemy.get_hp()
-    enemy_damage = enemy_hp//4
+
     experience_to_gain = enemy.get_experience()
 
-    character_damage = character.get_level()
+
 
     print(f"You fight {enemy_name}")
     print('Enter anything to continue')
@@ -81,6 +81,7 @@ def execute_combat_protocol(character, board):
         input()
     else:
         print(f"Alas, {character.get_name()}, you have been slain in combat.")
+        display_narrator_text("game_over_screen.txt")
 
 
 def is_mission_completed(board: dict) -> bool:

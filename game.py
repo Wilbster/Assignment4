@@ -12,7 +12,7 @@ from challenge import check_for_enemies, execute_combat_protocol
 
 
 def game():     # called from main
-    display_narrator_text("start_page.txt")
+    #display_narrator_text("start_page.txt")
     pause()
     map_legend = get_map_legend("Verden")
     board = set_up_board("Verden")
