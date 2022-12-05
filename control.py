@@ -10,16 +10,16 @@ import sys
 from character import Character
 
 
-def get_player_choice(options: list) -> tuple:
+def get_player_choice(options: tuple) -> str:
     """
     Get player choice.
 
-    :param options: a list
-    :precondition: options must bbe a non-empty list
+    :param options: a tuple
+    :precondition: options must be a non-empty tuple
     :postcondition: checks if player input matches number of any provided option,
-    if match is found - returns tuple(number, option); else ask user for input.
-    If player enters 'quit', the programm will be stoped
-    :return: tuple of int and string
+    if match is found - returns an option as a string; else ask user for input.
+    If player enters 'quit', the program will be stopped
+    :return: a string
     """
     for option in enumerate(options, 1):
         print(f"{option[0]}: {option[1]}")

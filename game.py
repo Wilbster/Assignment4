@@ -26,7 +26,7 @@ def game() -> None:
     achieved_goal = False
     while not achieved_goal and character.get_current_hp() > 0:
         # Tell the user where they are
-        options = ["North", "South", "West", "East"]
+        options = ("North", "South", "West", "East")
         direction = get_player_choice(options)
         valid_move = validate_move(character, direction)
         if valid_move:
