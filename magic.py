@@ -44,7 +44,9 @@ def mana_drain(character):
 
 
 def main():
-    pass
+    """
+     Drive the program.
+     """
 
 
 if __name__ == '__main__':
