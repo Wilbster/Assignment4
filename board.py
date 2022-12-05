@@ -8,15 +8,25 @@ A01331142
 import json
 import math
 import random
-
 from prettytable import PrettyTable
-
 from enemy import Enemy
-
 from location import Location
 
 
-def get_land_layout(map_name):
+def get_land_layout(map_name: str) -> list:
+    """
+    Read json file and return a list for "layout" key  for given map_name.
+
+    :param map_name: a string
+    :precondition: map_name must be a string, that represents a land name
+    :postcondition: reads given file and returns a list for "layout" key for given map_name
+    :return: a list
+
+    >>> type(get_land_layout("Verden"))
+    <class 'list'>
+    >>> get_land_layout("Hogwarts")
+    Oops! There is no such land in this version
+    """
     with open('maps.json', 'r') as maps_options:
         maps = json.load(maps_options)
     for land_name, layout in maps.items():
@@ -26,7 +36,20 @@ def get_land_layout(map_name):
             print("Oops! There is no such land in this version")
 
 
-def get_map_legend(map_name):
+def get_map_legend(map_name: str) -> dict:
+    """
+    Read json file and return a list for "legend" key  for given map_name.
+
+    :param map_name: a string
+    :precondition: map_name must be a string, that represents a land name
+    :postcondition: reads given file and returns a list for "legend" key for given map_name
+    :return: a list
+
+    >>> type(get_map_legend("Verden"))
+    <class 'dict'>
+    >>> get_map_legend("Hogwarts")
+    Oops! There is no such land in this version
+    """
     with open('maps.json', 'r') as maps_options:
         maps = json.load(maps_options)
     for land_name, land_info in maps.items():
@@ -36,7 +59,14 @@ def get_map_legend(map_name):
             print("Oops! There is no such land in this version")
 
 
-def print_map_legend(legend):
+def print_map_legend(legend: dict) -> None:
+    """
+    Print map legend in a table.
+
+    :param legend: a dictionary
+    :precondition: legend musst be a non-empty dictionary, that contains type of location as a key and
+    three characters as a value
+    """
     print()
     print('MAP LEGEND')
     headers = ["You are here"]
@@ -52,7 +82,19 @@ def print_map_legend(legend):
     print(table)
 
 
-def make_board(layout):
+def make_board(layout: list) -> dict:
+    """
+    Create dictionary that represents a board
+
+    :param layout: a list
+    :precondition: layout must be a non-empty list of lists
+    :postcondition: creates a dictionary based on given layout, with tuple as a key and a Location object as a value.
+    Creates Location object with column value (location type) from given list.
+    :return: a dictionary
+
+    >>> make_board([["Forest"], ["Forest", "Swamp"]])
+    {(0, 0): Location("Forest", , None), (1, 0): Location("Forest", , None), (1, 1): Location("Swamp", , None)}
+    """
     board = {}
     x_coordinate = 0
     for row in layout:
@@ -64,7 +106,7 @@ def make_board(layout):
     return board
 
 
-def draw_map(board_typed, legend, current_location):
+def draw_map(board_typed: dict, legend: dict, current_location: list) -> None:
     rows = set()
     columns = set()
     for key in board_typed.keys():
@@ -83,7 +125,7 @@ def draw_map(board_typed, legend, current_location):
     print_map_legend(legend)
 
 
-def generate_description(board):
+def generate_description(board: dict) -> None:
     with open('descriptions.json', 'r') as descriptions_options:
         descriptions = json.load(descriptions_options)
     for location in board.values():
@@ -97,7 +139,7 @@ def generate_description(board):
                                               location_description_sounds))
 
 
-def add_unique_descriptions(board):
+def add_unique_descriptions(board: dict) -> None:
     with open('unique_locations_description.json', 'r') as descriptions_options:
         descriptions = json.load(descriptions_options)
     for location in board.values():
@@ -106,7 +148,7 @@ def add_unique_descriptions(board):
             location.set_description(descriptions[location_type])
 
 
-def activate_enemies(board, enemies):
+def activate_enemies(board: dict, enemies: dict) -> None:
     for location in board.values():
         enemy_name = location.get_enemy()
         if enemy_name:
@@ -121,7 +163,7 @@ def activate_enemies(board, enemies):
                     break
 
 
-def set_enemies(board):
+def set_enemies(board: dict) -> None:
     with open('enemies.json', 'r') as enemies_types:
         enemies = json.load(enemies_types)
     enemies_per_type_location = {}
