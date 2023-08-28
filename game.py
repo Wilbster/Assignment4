@@ -18,7 +18,7 @@ def game() -> None:
     Run the game Witcher: Fang of the Devil.
     """
 
-    display_narrator_text("start_page.txt")
+    #display_narrator_text("start_page.txt")
     pause()
     map_legend = get_map_legend("Verden")
     board = set_up_board("Verden")
